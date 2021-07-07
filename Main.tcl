@@ -667,10 +667,6 @@ set help_text "
 in progress...
 
 
-press \"o\" -> open selected soundfile (with parameter)
-
-
-
 "
 
 proc mk_Help_Win {} {
