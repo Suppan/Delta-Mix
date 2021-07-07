@@ -4,7 +4,7 @@ Application for basic mixing and edit of sound samples
 
 
 ## Download
-[DeltaMix](https://github.com/Suppan/sfPlayerSC/releases)
+[DeltaMix](https://github.com/Suppan/DeltaMix/releases/)
 
 ## How to use
 
