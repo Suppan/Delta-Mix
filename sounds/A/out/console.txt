@@ -13,10 +13,10 @@ Creating score
 rtaudio: PortAudio module enabled ...
 using callback interface
 rtmidi: PortMIDI module enabled
-Elapsed time at end of orchestra compile: real: 0.003s, CPU: 0.003s
+Elapsed time at end of orchestra compile: real: 0.004s, CPU: 0.003s
 sorting score ...
 	... done
-Elapsed time at end of score sort: real: 0.003s, CPU: 0.003s
+Elapsed time at end of score sort: real: 0.004s, CPU: 0.003s
 graphics suppressed, ascii substituted
 0dBFS level = 1.0
 orch now loaded
@@ -67,5 +67,5 @@ inactive allocs returned to freespace
 end of score.		   overall amps:  0.99890  0.99887
 	   overall samples out of range:        0        0
 0 errors in performance
-Elapsed time at end of performance: real: 0.131s, CPU: 0.100s
+Elapsed time at end of performance: real: 0.101s, CPU: 0.092s
 2048 4096 sample blks of shorts written to /Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/A/out/mix_out.wav (AIFF)
