@@ -2676,7 +2676,7 @@ button  .b_update_ut -text "ut->" -command { set seed $temp_seed
 puts $temp_seed }
 place .b_update_ut -x 450 -y 77
 
-button  .b_set_Color_List -text "<- set rnd" -command { 
+button  .b_set_Color_List -text "set rnd dx" -command { 
 	#set random state:
 	if {$seed == ""} {set temp_seed [clock seconds]} else {set temp_seed $seed}	
 	expr srand($temp_seed)
