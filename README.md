@@ -10,8 +10,7 @@ Application for basic mixing and edit of sound samples
 
 - Install Tcl-Tk Version 8.6.11
 - Install Csound and SOX
-
--start the App with the terminal command "wish path_to/Main.tcl"
+- start the App with the terminal command "wish Main.tcl"
 
 
 *************
