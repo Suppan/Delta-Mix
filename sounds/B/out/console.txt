@@ -24,18 +24,130 @@ audio buffered in 1024 sample-frame blocks
 writing 4096-byte blks of shorts to /Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/B/out/mix_out.wav (AIFF)
 SECTION 1:
 new alloc for instr 1:
-diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/B/7-car-stop.wav':
-         44100 Hz, 2 channel(s), 307426 sample frames
-
-B  0.000 .. 61.200 T 61.200 TT 61.200 M:  0.81100  0.99884
 diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/B/8-children.wav':
          44100 Hz, 2 channel(s), 341120 sample frames
 
-B 61.200 .. 68.935 T 68.935 TT 68.935 M:  0.88571  0.97723
+B  0.000 ..  0.205 T  0.205 TT  0.205 M:  0.00968  0.01160
+new alloc for instr 1:
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/B/7-car-stop.wav':
+         44100 Hz, 2 channel(s), 307426 sample frames
+
+B  0.205 ..  0.411 T  0.411 TT  0.411 M:  0.13847  0.08838
+new alloc for instr 1:
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/B/8-children.wav':
+         44100 Hz, 2 channel(s), 341120 sample frames
+
+B  0.411 ..  0.616 T  0.616 TT  0.616 M:  0.24665  0.22747
+new alloc for instr 1:
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/B/7-car-stop.wav':
+         44100 Hz, 2 channel(s), 307426 sample frames
+
+B  0.616 ..  0.821 T  0.821 TT  0.821 M:  0.25625  0.25432
+new alloc for instr 1:
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/B/8-children.wav':
+         44100 Hz, 2 channel(s), 341120 sample frames
+
+B  0.821 ..  1.026 T  1.026 TT  1.026 M:  0.46089  0.59244
+new alloc for instr 1:
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/B/7-car-stop.wav':
+         44100 Hz, 2 channel(s), 307426 sample frames
+
+B  1.026 ..  1.232 T  1.232 TT  1.232 M:  0.47050  0.45168
+new alloc for instr 1:
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/B/8-children.wav':
+         44100 Hz, 2 channel(s), 341120 sample frames
+
+B  1.232 ..  1.437 T  1.437 TT  1.437 M:  0.64545  0.68650
+new alloc for instr 1:
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/B/7-car-stop.wav':
+         44100 Hz, 2 channel(s), 307426 sample frames
+
+B  1.437 ..  1.642 T  1.642 TT  1.642 M:  0.53883  0.75982
+new alloc for instr 1:
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/B/8-children.wav':
+         44100 Hz, 2 channel(s), 341120 sample frames
+
+B  1.642 ..  1.847 T  1.847 TT  1.847 M:  0.47034  0.55504
+new alloc for instr 1:
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/B/7-car-stop.wav':
+         44100 Hz, 2 channel(s), 307426 sample frames
+
+B  1.847 ..  2.053 T  2.053 TT  2.053 M:  0.52710  0.76144
+new alloc for instr 1:
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/B/8-children.wav':
+         44100 Hz, 2 channel(s), 341120 sample frames
+
+B  2.053 ..  2.258 T  2.258 TT  2.258 M:  0.53561  0.65527
+new alloc for instr 1:
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/B/7-car-stop.wav':
+         44100 Hz, 2 channel(s), 307426 sample frames
+
+B  2.258 ..  2.463 T  2.463 TT  2.463 M:  0.67186  0.92257
+new alloc for instr 1:
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/B/8-children.wav':
+         44100 Hz, 2 channel(s), 341120 sample frames
+
+B  2.463 ..  2.668 T  2.668 TT  2.668 M:  0.75711  1.02713
+	 number of samples out of range:        0        3
+new alloc for instr 1:
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/B/7-car-stop.wav':
+         44100 Hz, 2 channel(s), 307426 sample frames
+
+B  2.668 ..  2.874 T  2.874 TT  2.874 M:  0.67490  0.85073
+new alloc for instr 1:
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/B/8-children.wav':
+         44100 Hz, 2 channel(s), 341120 sample frames
+
+B  2.874 ..  3.079 T  3.079 TT  3.079 M:  0.61578  0.92914
+new alloc for instr 1:
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/B/7-car-stop.wav':
+         44100 Hz, 2 channel(s), 307426 sample frames
+
+B  3.079 ..  3.284 T  3.284 TT  3.284 M:  0.73479  0.84794
+new alloc for instr 1:
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/B/8-children.wav':
+         44100 Hz, 2 channel(s), 341120 sample frames
+
+B  3.284 ..  3.489 T  3.489 TT  3.489 M:  0.66243  0.77078
+new alloc for instr 1:
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/B/7-car-stop.wav':
+         44100 Hz, 2 channel(s), 307426 sample frames
+
+B  3.489 ..  3.695 T  3.695 TT  3.695 M:  0.66551  0.77534
+new alloc for instr 1:
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/B/8-children.wav':
+         44100 Hz, 2 channel(s), 341120 sample frames
+
+B  3.695 ..  3.900 T  3.900 TT  3.900 M:  0.70924  0.83900
+new alloc for instr 1:
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/B/7-car-stop.wav':
+         44100 Hz, 2 channel(s), 307426 sample frames
+
+B  3.900 ..  6.331 T  6.330 TT  6.330 M:  0.70610  1.13924
+	 number of samples out of range:        0       15
+B  6.331 .. 14.976 T 14.976 TT 14.976 M:  0.77414  0.70407
+B 14.976 .. 15.470 T 15.470 TT 15.470 M:  0.05017  0.03861
+B 15.470 .. 17.196 T 17.196 TT 17.196 M:  0.05413  0.04233
+B 17.196 .. 17.776 T 17.776 TT 17.776 M:  0.01137  0.01156
+B 17.776 .. 19.637 T 19.637 TT 19.637 M:  0.00629  0.00704
+B 19.637 .. 20.312 T 20.312 TT 20.312 M:  0.00167  0.00117
+B 20.312 .. 22.327 T 22.327 TT 22.327 M:  0.00115  0.00091
+B 22.327 .. 23.110 T 23.110 TT 23.110 M:  0.00116  0.00089
+B 23.110 .. 25.295 T 25.295 TT 25.295 M:  0.00103  0.00083
+B 25.295 .. 26.200 T 26.199 TT 26.199 M:  0.00097  0.00068
+B 26.200 .. 28.577 T 28.577 TT 28.577 M:  0.00078  0.00065
+B 28.577 .. 29.618 T 29.618 TT 29.618 M:  0.00073  0.00065
+B 29.618 .. 32.211 T 32.210 TT 32.210 M:  0.00074  0.00058
+B 32.211 .. 36.239 T 36.239 TT 36.239 M:  0.00069  0.00059
+B 36.239 .. 37.604 T 37.604 TT 37.604 M:  0.00068  0.00051
+B 37.604 .. 40.710 T 40.710 TT 40.710 M:  0.00052  0.00043
+B 40.710 .. 42.267 T 42.267 TT 42.267 M:  0.00047  0.00040
+B 42.267 .. 45.679 T 45.679 TT 45.679 M:  0.00037  0.00028
+B 45.679 .. 47.452 T 47.451 TT 47.451 M:  0.00031  0.00022
 Score finished in csoundPerform().
 inactive allocs returned to freespace
-end of score.		   overall amps:  0.88571  0.99884
-	   overall samples out of range:        0        0
+end of score.		   overall amps:  0.77414  1.13924
+	   overall samples out of range:        0       18
 0 errors in performance
-Elapsed time at end of performance: real: 0.081s, CPU: 0.078s
+Elapsed time at end of performance: real: 3.571s, CPU: 3.301s
 2048 4096 sample blks of shorts written to /Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/B/out/mix_out.wav (AIFF)

@@ -1559,7 +1559,6 @@ bind . <Configure> {
 		place .b_empty_out -x [expr 640 +  %w - 800] -y [expr 628 +  %h - 720]
 		place .b_open_sf -x [expr 560 +  %w - 800] -y [expr 668 +  %h - 720];#668
 		place .b_open_script -x [expr 545 +  %w - 800] -y [expr 628 +  %h - 720];#628 
-		place .b_open_folder -x [expr 20 +  %w - 800] -y 77 
 		place .b_open_console_txt -x [expr 440 +  %w - 800] -y [expr 628 +  %h - 720];#628 
 
 		place .enText_outpath -x 100 -y [expr 668 +  %h - 720];#668 
@@ -2647,7 +2646,7 @@ proc eval_Csound {} {
 #========================================================================================================
 
 button  .b_open_folder -text "open sf Dir" -command { open_sound_folder }
-place .b_open_folder -x 120 -y 77 
+place .b_open_folder -x 20 -y 77 
 
 button  .b_open_script -text "temp.csd" -command { exec open "$curr_Dir/temp_csound.csd"}
 place .b_open_script -x 450 -y 628 
