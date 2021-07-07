@@ -31,9 +31,9 @@ endif
 </CsInstruments>
 
 <CsScore>
-i1    0.000   5.995601   0   0.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/C/9-car-horn-old.wav"
-i1   15.000   9.453333   0   0.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/C/10-sticks.wav"
-i1   30.000   4.311565   0   0.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/C/11-camera-noise.wav"
+i1    0.000  47.964807 -36 -32.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/C/9-car-horn-old.wav"
+i1    4.416  75.626667 -36   0.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/C/10-sticks.wav"
+i1    8.831  34.492517 -36   0.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/C/11-camera-noise.wav"
 
 e
 </CsScore>
