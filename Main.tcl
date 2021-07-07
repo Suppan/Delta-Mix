@@ -647,7 +647,7 @@ proc mk_Pref_Win {} {
 	ttk::entry $w.pref_soxpath -textvariable sox_terminal_path_x -width 60
 	place $w.pref_soxpath -x 120 -y 60 
 
-	place [label $w.text3 -text "default Dir:"] -x 20 -y 85 
+	place [label $w.text3 -text "default sf Dir:"] -x 20 -y 85 
 	ttk::entry $w.pref_default_Dir -textvariable default_Dir_x -width 60
 	place $w.pref_default_Dir -x 120 -y 85
 
@@ -663,7 +663,14 @@ proc mk_Pref_Win {} {
 set counter2 0
 
 set help_text "
+
+in progress...
+
+
 press \"o\" -> open selected soundfile (with parameter)
+
+
+
 "
 
 proc mk_Help_Win {} {
