@@ -16,6 +16,7 @@ Application for basic mixing and edit of sound samples
 
 - you can choose any folder on your computer with minmum 2 soundfiles in it.
 - do graphic changes with the mouse (time-delta, volume, transpose)
+- every changes is related to the soundfile folder (unique)
 - evaluate an open the soundfile
 
 *************
