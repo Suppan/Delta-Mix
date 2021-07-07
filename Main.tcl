@@ -1560,7 +1560,6 @@ bind . <Configure> {
 		place .b_open_sf -x [expr 560 +  %w - 800] -y [expr 668 +  %h - 720];#668
 		place .b_open_script -x [expr 545 +  %w - 800] -y [expr 628 +  %h - 720];#628 
 		place .b_open_console_txt -x [expr 440 +  %w - 800] -y [expr 628 +  %h - 720];#628 
-
 		place .enText_outpath -x 100 -y [expr 668 +  %h - 720];#668 
 		place .lb__outpath -x 20 -y [expr 670 +  %h - 720];#670
 		place .mb_format -x 260 -y [expr 669 +  %h - 720];#669 	
