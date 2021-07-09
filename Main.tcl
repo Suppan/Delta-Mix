@@ -869,6 +869,9 @@ bind . <KeyPress-h> { mk_Help_Win }
 #
 #========================================================================================================
 
+ttk::label .lb_appname -text "DeltaMix v0.21"  -font "menlo 24" 
+place .lb_appname -x 550 -y 5
+
 ttk::label .lb_info_txt_dur -text "sum dx =  gesamt dur - dur of last soundfile"  -font "menlo 11" -foreground #1c79d9
 
 set n_colorList [llength $colorList]
