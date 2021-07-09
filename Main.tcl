@@ -74,7 +74,6 @@ proc write_curr_Dir {dir} {
 	close $f
 }
 
-
 proc get_curr_Dir {} {
 	global app_Dir
 	global curr_Dir
@@ -85,7 +84,9 @@ proc get_curr_Dir {} {
 						set curr_Dirx [read $fp]
 						close $fp }
 	set test2 [file exist $curr_Dirx]					
-	if {$test2 == 0} { set curr_Dirx $default_Dir }
+	if {$test2 == 0} { set curr_Dirx [file join $app_Dir "sounds/A"] 
+						write_curr_Dir $curr_Dirx 
+					  }
 	return $curr_Dirx 
 }
 
