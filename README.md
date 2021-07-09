@@ -1,6 +1,6 @@
 # **DeltaMix**
 
-Application for basic mixing and edit of sound samples 
+Application for basic mixing of sound samples 
 
 
 ## Download
