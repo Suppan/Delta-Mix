@@ -1,6 +1,6 @@
 # **DeltaMix**
 
-Application for basic mixing of sound samples 
+Application for basic mixing for sound samples with algorhitmic based time-intervals
 
 
 ## Download
