@@ -16,7 +16,7 @@ Application for basic mixing for sound samples with algorithmic based time-inter
 
 - start the Tcl-Tk Application with the terminal command "wish Main.tcl"
 
-<div align="center"><img src="/resources/icons/default_Dir.png" width="600px"</img></div>  
+<div align="center"><img src="/resources/icons/default_Dir.png" width="700px"</img></div>  
 
 *************
 This program is free software. It is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY, without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
