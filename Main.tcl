@@ -74,6 +74,7 @@ proc write_curr_Dir {dir} {
 	close $f
 }
 
+
 proc get_curr_Dir {} {
 	global app_Dir
 	global curr_Dir
@@ -82,9 +83,10 @@ proc get_curr_Dir {} {
 	set test [file exist $path]
 	if {$test == 1} { 	set fp [open $path r]
 						set curr_Dirx [read $fp]
-						close $fp
-						return $curr_Dirx } else { return $default_Dir 
-						}
+						close $fp }
+	set test2 [file exist $curr_Dirx]					
+	if {$test2 == 0} { set curr_Dirx $default_Dir }
+	return $curr_Dirx 
 }
 
 proc TestEntry_onlyZahl {Zeichen} {
@@ -273,6 +275,7 @@ proc reset_m_data_default {} {
 	global graph_w
 	global graph_h
 	global curr_Dir
+	global app_Dir
 	global sf_List
 	global sf_List_len
 	global colorList
@@ -301,6 +304,7 @@ proc reset_m_data_default {} {
 	global selected
 	global all_values
 
+	#set curr_Dir [file join $app_Dir "sounds/A"]
 	set sf_List [lsort -dictionary -increasing -nocase [glob -directory $curr_Dir -type f *{.wav,.WAV,.aif,.aiff,.AIF,.AIFF}*]] ;#*.wav]]
 	set sf_List_len [llength $sf_List] 
 	set colorList {}
@@ -2744,7 +2748,8 @@ place .b_set_Color_List -x 660 -y 160
 #========================================================================================================
 
 if {$sf_List_len > 0} {	CreateCanvas
-						CreateCanvas2 } else { open_new_dir }
+						CreateCanvas2
+						} else { open_new_dir }
 
 #=====
 # EOF
