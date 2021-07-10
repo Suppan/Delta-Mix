@@ -872,7 +872,11 @@ bind . <KeyPress-h> { mk_Help_Win }
 ttk::label .lb_appname -text "DeltaMix v0.21"  -font "menlo 24" 
 place .lb_appname -x 550 -y 5
 
-ttk::label .lb_info_txt_dur -text "sum dx =  gesamt dur - dur of last soundfile"  -font "menlo 11" -foreground #1c79d9
+ttk::label .lb_info_txt_dur -text "sum dx = entire dur - dur of last soundfile"  -font "menlo 11" -foreground #1c79d9
+ttk::label .lb_info_key1 -text "up-arrow and down-arrow (shift) -> edit value of selected points"  -font "menlo 11" -foreground #1c79d9
+ttk::label .lb_info_key2 -text "left-arrow and right-arrow -> move selection"  -font "menlo 11" -foreground #1c79d9
+ttk::label .lb_info_key3 -text "click on point (shift) -> select (extend selection)"  -font "menlo 11" -foreground #1c79d9
+ttk::label .lb_info_key4 -text "press 0 -> set default (0)"  -font "menlo 11" -foreground #1c79d9
 
 set n_colorList [llength $colorList]
 ttk::label .lb_colorList_len -text "\[len = $n_colorList\]"
@@ -947,6 +951,13 @@ place .slider_dur_sec -x 30 -y 42
 place .lb_durx -x [expr 25 + ($slider_pos * 6)] -y 20  
 place .lb_dur -x 720 -y 40 
 place .lb_info_txt_dur  -x 20 -y 4
+
+place .lb_info_key1  -x 24 -y 590
+place .lb_info_key2  -x 24 -y 610
+place .lb_info_key3  -x 24 -y 630
+place .lb_info_key4  -x 24 -y 650
+
+
 
 proc refresCanvas {} {
   ClearCanvas .c
@@ -1572,6 +1583,12 @@ bind . <Configure> {
     place .lb__outpath -x 20 -y [expr 670 +  %h - 720];#670
     place .mb_format -x 260 -y [expr 669 +  %h - 720];#669   
     place .lb_appname -x [expr 580 +  %w - 800] -y 5
+
+    place .lb_info_key1  -x 24 -y [expr 590 +  %h - 720]
+    place .lb_info_key2  -x 24 -y [expr 610 +  %h - 720]
+    place .lb_info_key3  -x 24 -y [expr 630 +  %h - 720] 
+    place .lb_info_key4  -x 24 -y [expr 650 +  %h - 720]
+
     }
 }
 
