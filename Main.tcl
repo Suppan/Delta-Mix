@@ -877,6 +877,7 @@ ttk::label .lb_info_key1 -text "up-arrow and down-arrow (shift) -> edit value of
 ttk::label .lb_info_key2 -text "left-arrow and right-arrow -> move selection"  -font "menlo 11" -foreground #1c79d9
 ttk::label .lb_info_key3 -text "click on point (shift) -> select (extend selection)"  -font "menlo 11" -foreground #1c79d9
 ttk::label .lb_info_key4 -text "press 0 -> set default (0)"  -font "menlo 11" -foreground #1c79d9
+ttk::label .lb_info_key5 -text "press o -> opens selected sf (with changed param dB and tr)"  -font "menlo 11" -foreground #1c79d9
 
 set n_colorList [llength $colorList]
 ttk::label .lb_colorList_len -text "\[len = $n_colorList\]"
@@ -956,6 +957,7 @@ place .lb_info_key1  -x 24 -y 590
 place .lb_info_key2  -x 24 -y 610
 place .lb_info_key3  -x 24 -y 630
 place .lb_info_key4  -x 24 -y 650
+place .lb_info_key5  -x 150 -y 85
 
 
 
