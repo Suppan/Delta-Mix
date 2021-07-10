@@ -8,7 +8,7 @@
 #                                   Wolfgang Suppan (©2021)
 #
 #
-#                             graphic editor for soundfile mixing
+#                             graphic editor for algorithmic soundfile mixing
 #
 #
 #
