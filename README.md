@@ -8,9 +8,9 @@ Application for basic mixing for sound samples with algorithmic based time-inter
 
 ## Additional Software  
 
-- Tcl-Tk Version 8.6.11 (ie. via homebrew)
-- Csound
-- SOX
+- [Tcl-Tk](https://www.tcl.tk) Version 8.6.11 (ie. via homebrew)
+- [Csound](https://csound.com)
+- [SOX](http://sox.sourceforge.net)
 
 ## How to use
 
