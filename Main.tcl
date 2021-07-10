@@ -1571,6 +1571,7 @@ bind . <Configure> {
 		place .enText_outpath -x 100 -y [expr 668 +  %h - 720];#668 
 		place .lb__outpath -x 20 -y [expr 670 +  %h - 720];#670
 		place .mb_format -x 260 -y [expr 669 +  %h - 720];#669 	
+		place .lb_appname -x [expr 580 +  %w - 800] -y 5
     }
 }
 
