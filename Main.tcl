@@ -1988,7 +1988,6 @@ bind .c2 <Shift-ButtonPress-1> {
             set idx3 [lindex $all_elem4 $posxx]
             lappend selected3 $idx3
             .c2 itemconfigure $idx3 -fill red
-
         }
         "dB0" {
             lappend selected2 $id
