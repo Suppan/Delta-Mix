@@ -1,13 +1,13 @@
 
 <CsoundSynthesizer>
 <CsOptions>
--o "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/C/out/mix_out.wav"
+-o "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/out/mix_out.wav"
 </CsOptions>
 <CsInstruments>
 
-sr 	= 	44100
-ksmps 	= 	32
-nchnls 	= 	2	
+sr   =   44100
+ksmps   =   32
+nchnls   =   2  
 
 0dbfs = 1
 
@@ -31,9 +31,10 @@ endif
 </CsInstruments>
 
 <CsScore>
-i1    0.000  47.964807 -36 -32.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/C/9-car-horn-old.wav"
-i1    4.416  75.626667 -36   0.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/C/10-sticks.wav"
-i1    8.831  34.492517 -36   0.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/C/11-camera-noise.wav"
+i1    0.000   5.995601   0   0.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/9-car-horn-old.wav"
+i1   20.000   9.453333   0   0.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/10-sticks.wav"
+i1   40.000   4.311565   0   0.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/11-camera-noise.wav"
+i1   60.000   0.853946   0   0.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/12-alabama.aif"
 
 e
 </CsScore>

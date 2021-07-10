@@ -239,8 +239,8 @@ proc read_pref_data_file {} {
     return $dict
 }
 
-proc write_pref_data {csound_terminal_path sox_terminal_path default_Dir} {
-  set data_pairs [list "csound_terminal_path" $csound_terminal_path "sox_terminal_path" $sox_terminal_path "default_Dir" $default_Dir]
+proc write_pref_data {csound_terminal_path default_Dir} {
+  set data_pairs [list "csound_terminal_path" $csound_terminal_path "default_Dir" $default_Dir]
   write_pref_data_file $data_pairs
 }
 
@@ -346,12 +346,11 @@ proc reset_m_data_default {} {
       if {$x < [expr $sf_List_len - 1]} {lappend dxList 1}
       lappend sf_mul_List 0
       lappend sf_transp_List 0
-      #set durx [exec soxi -D $pathx]
-      # sox get very slow with bigger files...
       set durx [exec mdls -name kMDItemDurationSeconds -raw $pathx]
       lappend sf_dur0_List $durx
       lappend sf_dur_List $durx
-      lappend sf_chan_List 2;#[exec soxi -c $pathx]  
+      set chanx [exec mdls -name kMDItemAudioChannelCount -raw $pathx] 
+      lappend sf_chan_List $chanx
       }
 
   set data_pairs [list "sf_List" $sf_List "sf_List_len" $sf_List_len "sf_mul_List" $sf_mul_List "sf_transp_List" $sf_transp_List\
@@ -526,23 +525,18 @@ proc open_new_dir {} {
 }
 
 proc start_delta_mix {} {
-    global app_Dir
-    global curr_Dir
-    global graph_w
-    global graph_h
+  global app_Dir
+  global curr_Dir
+  global graph_w
+  global graph_h
   global csound_terminal_path
-  global sox_terminal_path
   global default_Dir
   global compi
   set curr_Dir [get_curr_Dir]
 
   set prefs_data [read_pref_data_file]
   set csound_terminal_path [dict get $prefs_data csound_terminal_path]
-  set sox_terminal_path [dict get $prefs_data sox_terminal_path]
-  #because of different sox pathes on my machines:
-  if {$compi == "mac-mini"} {set sox_terminal_path "/opt/homebrew/bin/sox"} else {set sox_terminal_path [dict get $prefs_data sox_terminal_path]}
   set default_Dir [dict get $prefs_data default_Dir]
-
   upload_m_data
 }
 
@@ -622,20 +616,17 @@ proc reset_Main {} {
 set counter 0
 set prefs_data [read_pref_data_file]
 set csound_terminal_path_x [dict get $prefs_data csound_terminal_path]
-set sox_terminal_path_x [dict get $prefs_data sox_terminal_path]
 set default_Dir_x [dict get $prefs_data default_Dir]
 
 proc mk_Pref_Win {} {
     # Make a unique widget name
     global counter
     global csound_terminal_path_x
-    global sox_terminal_path_x
     global default_Dir_x
     set w .gui[incr counter]
 
   set prefs_data [read_pref_data_file]
   set csound_terminal_path_x [dict get $prefs_data csound_terminal_path]
-  set sox_terminal_path_x [dict get $prefs_data sox_terminal_path]
   set default_Dir_x [dict get $prefs_data default_Dir]
 
     # Make the toplevel
@@ -648,17 +639,13 @@ proc mk_Pref_Win {} {
   ttk::entry $w.pref_outpath -textvariable csound_terminal_path_x -width 60
   place $w.pref_outpath -x 120 -y 35 
 
-  place [label $w.text2 -text "sox Path:"] -x 20 -y 60 
-  ttk::entry $w.pref_soxpath -textvariable sox_terminal_path_x -width 60
-  place $w.pref_soxpath -x 120 -y 60 
-
   place [label $w.text3 -text "default sf Dir:"] -x 20 -y 85 
   ttk::entry $w.pref_default_Dir -textvariable default_Dir_x -width 60
   place $w.pref_default_Dir -x 120 -y 85
 
   #write_pref_data
     place [button $w.set -text UPDATE -command {
-    write_pref_data $csound_terminal_path_x $sox_terminal_path_x $default_Dir_x
+    write_pref_data $csound_terminal_path_x $default_Dir_x
     }
     ] -x 120 -y 150
     place [button $w.ok -text CLOSE -command [list destroy $w]] -x 580 -y 150
@@ -869,7 +856,7 @@ bind . <KeyPress-h> { mk_Help_Win }
 #
 #========================================================================================================
 
-ttk::label .lb_appname -text "DeltaMix v0.21"  -font "menlo 24" 
+ttk::label .lb_appname -text "DeltaMix v0.22"  -font "menlo 24" 
 place .lb_appname -x 550 -y 5
 
 ttk::label .lb_info_txt_dur -text "sum dx = entire dur - dur of last soundfile"  -font "menlo 11" -foreground #1c79d9
@@ -1748,15 +1735,16 @@ bind . <KeyPress-o> {
         set posxx [find_all_elemX_pos $selected $all_elem]
         set trx [lindex $sf_transp_List $posxx]
         set speedx [expr pow(2.0,($trx / 12.0))]
-        set gainx [lindex $sf_mul_List $posxx]
+        set mulx [lindex $sf_mul_List $posxx]
+        set durx [lindex $sf_dur_List $posxx]
         set pathnamex [file rootname [file tail $pathx]]
         set formatx [file extension $pathx]
         set speedx2 [round_scaleval $speedx 2]
         set addstr "_speed=$speedx2"
-        set addstr1 "_gain$gainx"
+        set addstr1 "_gain$mulx"
         set outpathx [file join "$curr_Dir/out" "$pathnamex$addstr$addstr1$formatx"]
-        exec $sox_terminal_path $pathx $outpathx gain $gainx speed $speedx 
-        exec open $outpathx
+        set csdpathx [file join "$curr_Dir/out" "$pathnamex$addstr$addstr1.csd"]
+        eval_single_Csound $pathx $durx $trx $mulx $outpathx $csdpathx
         }
   }  else {bell}
 }
@@ -2563,6 +2551,66 @@ bind . <Shift-Key-Down> {
 #
 #
 #========================================================================================================
+
+proc make_single_csound_score {the_sf_Path durx transpx mulx outpathx} {
+  set str_coll [format "i1 %8.3f %10s %3.0f %5.1f \"%10s\"\n" 0 $durx $transpx $mulx $the_sf_Path]
+  set str_res [format "
+<CsoundSynthesizer>
+<CsOptions>
+-o %s
+</CsOptions>
+<CsInstruments>
+
+sr   =   44100
+ksmps   =   32
+nchnls   =   2  
+
+0dbfs = 1
+
+instr 1
+
+itransp = p4
+imul = ampdbfs(p5)
+Sfilepath = p6
+
+ichn filenchnls Sfilepath
+ispeed = powoftwo(itransp / 12)
+
+if ichn == 2 then
+aL, aR diskin2 Sfilepath, ispeed, 0, 0, 0, 32
+outs aL*imul ,aR*imul
+else
+aL diskin2 Sfilepath, ispeed, 0, 0, 0, 32
+outs aL*imul, aL*imul
+endif
+  endin
+</CsInstruments>
+
+<CsScore>
+%s
+e
+</CsScore>
+</CsoundSynthesizer>" "\"$outpathx\"" $str_coll]
+
+return $str_res
+}
+
+proc eval_single_Csound {the_sf_Path durx transpx mulx outpathx csdpathx} {
+    global csound_terminal_path
+    global temp_console_out
+    global curr_Dir
+
+    set test [file exist "$curr_Dir/out/"]
+    if {$test == 0} { 
+                      set mkdir_path "$curr_Dir/out/"
+                      exec mkdir -p $mkdir_path
+                    }
+    set temp_csound_str [make_single_csound_score $the_sf_Path $durx $transpx $mulx $outpathx]
+    write_file $temp_csound_str $csdpathx
+    puts "$csound_terminal_path $csdpathx"
+    set test_catch [catch [exec $csound_terminal_path --logfile=$temp_console_out $csdpathx]]
+    if {$test_catch == 0} {exec open $outpathx }
+}
 
 proc make_csound_score {} {
   global dur_sec

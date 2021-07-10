@@ -4,7 +4,7 @@
 libsndfile-1.0.28
 WARNING: could not open library '/Library/Frameworks/CsoundLib64.framework/Versions/6.0/Resources/Opcodes64/libfluidOpcodes.dylib' (-1)
 WARNING: could not open library '/Library/Frameworks/CsoundLib64.framework/Versions/6.0/Resources/Opcodes64/librtjack.dylib' (-1)
-UnifiedCSD:  /Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/C/temp_csound.csd
+UnifiedCSD:  /Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/out/12-alabama_speed=0.5_gain-10.csd
 STARTING FILE
 Creating options
 Creating orchestra
@@ -21,30 +21,17 @@ graphics suppressed, ascii substituted
 0dBFS level = 1.0
 orch now loaded
 audio buffered in 1024 sample-frame blocks
-writing 4096-byte blks of shorts to /Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/C/out/mix_out.wav (AIFF)
+writing 4096-byte blks of shorts to /Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/out/12-alabama_speed=0.5_gain-10.aif (AIFF)
 SECTION 1:
 new alloc for instr 1:
-diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/C/9-car-horn-old.wav':
-         44100 Hz, 2 channel(s), 264406 sample frames
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/12-alabama.aif':
+         44100 Hz, 1 channel(s), 37659 sample frames
 
-B  0.000 ..  4.416 T  4.416 TT  4.416 M:  0.02589  0.01977
-new alloc for instr 1:
-diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/C/10-sticks.wav':
-         44100 Hz, 2 channel(s), 416892 sample frames
-
-B  4.416 ..  8.831 T  8.831 TT  8.831 M:  0.58408  0.58260
-new alloc for instr 1:
-diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/C/11-camera-noise.wav':
-         44100 Hz, 1 channel(s), 190140 sample frames
-
-B  8.831 .. 43.324 T 43.323 TT 43.323 M:  1.08309  1.08283
-	 number of samples out of range:       31       31
-B 43.324 .. 47.965 T 47.964 TT 47.964 M:  0.00459  0.00446
-B 47.965 .. 80.043 T 80.043 TT 80.043 M:  0.00059  0.00062
+B  0.000 ..  1.708 T  1.708 TT  1.708 M:  0.12788  0.12788
 Score finished in csoundPerform().
 inactive allocs returned to freespace
-end of score.		   overall amps:  1.08309  1.08283
-	   overall samples out of range:       31       31
+end of score.		   overall amps:  0.12788  0.12788
+	   overall samples out of range:        0        0
 0 errors in performance
-Elapsed time at end of performance: real: 1.009s, CPU: 0.956s
-2048 4096 sample blks of shorts written to /Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.21/sounds/C/out/mix_out.wav (AIFF)
+Elapsed time at end of performance: real: 0.050s, CPU: 0.013s
+2048 4096 sample blks of shorts written to /Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/out/12-alabama_speed=0.5_gain-10.aif (AIFF)
