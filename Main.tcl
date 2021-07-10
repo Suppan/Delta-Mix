@@ -5,10 +5,10 @@
 #
 #                                         Delta-Mix
 #
-#									Wolfgang Suppan (©2021)
+#                                   Wolfgang Suppan (©2021)
 #
 #
-#						    graphic editor for soundfile mixing
+#                             graphic editor for soundfile mixing
 #
 #
 #
