@@ -515,7 +515,7 @@ proc open_new_dir {} {
                       -detail "new dir: ~/$short_foldername/"]
                   if {$answer == yes} {   set curr_Dir $dir
                             write_curr_Dir $dir
-                            wm title . [format "current curr_Dir: ~/$short_foldername/"]
+                            wm title . [format "sf Dir: ~/$short_foldername/"]
                             #reset_m_data_default 
                             upload_m_data
                             reset_Main
@@ -576,7 +576,7 @@ proc upload_m_data {} {
   set out_format [dict get $m_data out_format]
 
   set dirtail [file tail $curr_Dir]
-  wm title . [format "current curr_Dir: ~/$dirtail/"]
+  wm title . [format "soundfile Dir: ~/$dirtail/"]
   set temp_console_out [file join "$curr_Dir/out" "console.txt"]
 }
 
@@ -689,7 +689,7 @@ proc mk_Help_Win {} {
 set geometry_start "800x720+250+50"
 set geometry_expand "1200x720+250+50"
 
-wm title . [format "current curr_Dir: ~/$dirtail/"]
+wm title . [format "soundfile Dir: ~/$dirtail/"]
 wm resizable . 1 1
 wm geometry . $geometry_start
 wm minsize . 800 520
