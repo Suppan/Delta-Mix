@@ -14,7 +14,10 @@ Application for basic mixing for sound samples with algorithmic based time-inter
 
 ## How to use
 
+
 - start the Tcl-Tk Application with the terminal command "wish Main.tcl"
+
+- open preferences (cmd-;) and set the right pathes
 
 <div align="center"><img src="/resources/icons/app.png" width="800px"</img></div>  
 
