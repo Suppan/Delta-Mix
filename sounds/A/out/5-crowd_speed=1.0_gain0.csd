@@ -31,7 +31,7 @@ endif
 </CsInstruments>
 
 <CsScore>
-i1    0.000 4.446666666666666   0   0.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/5-crowd.wav"
+i1    0.000   4.446667   0   0.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/5-crowd.wav"
 
 e
 </CsScore>

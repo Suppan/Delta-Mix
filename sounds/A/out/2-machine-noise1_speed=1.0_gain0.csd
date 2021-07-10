@@ -1,7 +1,7 @@
 
 <CsoundSynthesizer>
 <CsOptions>
--o "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/out/4-ugly-horn_speed=1.0_gain0.wav"
+-o "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/out/2-machine-noise1_speed=1.0_gain0.wav"
 </CsOptions>
 <CsInstruments>
 
@@ -31,7 +31,7 @@ endif
 </CsInstruments>
 
 <CsScore>
-i1    0.000   2.010544   0   0.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/4-ugly-horn.wav"
+i1    0.000   3.674014   0   0.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/2-machine-noise1.wav"
 
 e
 </CsScore>
