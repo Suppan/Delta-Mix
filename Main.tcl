@@ -1845,21 +1845,6 @@ bind .c <ButtonRelease> {
 #
 #===========================================================================================
 
-proc get_closest_db_id {x range ids} {
-    set dx0 $range
-    set id0 {}
-
-    foreach idx $ids {
-    set xx [lindex [.c2 coords $idx] 0]
-    set dx [expr abs($xx - $x)]
-    if {$dx < $dx0 && $dx < $range} {
-      set dx0 $dx
-      set id0 $idx
-      }
-    }
-    return $id0
-}
-
 proc find_all_elemX_pos {id elem_liste} {
   set x 0
   set res {}
