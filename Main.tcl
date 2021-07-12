@@ -306,7 +306,7 @@ proc reset_m_data_default {} {
   global all_values
 
   #set curr_Dir [file join $app_Dir "sounds/A"]
-  set sf_List [lsort -dictionary -increasing -nocase [glob -directory $curr_Dir -type f *{.wav,.WAV,.aif,.aiff,.AIF,.AIFF}*]] ;#*.wav]]
+  set sf_List [lsort -dictionary -increasing -nocase [glob -directory $curr_Dir -type f *{.wav,.WAV,.aif,.aiff,.AIF,.AIFF}*]]
   set sf_List_len [llength $sf_List] 
   set colorList {}
   set dxList {}
@@ -441,18 +441,6 @@ proc delete_out_files {} {
     file delete -force $the_path
     }
 }
-
-#proc cleanup_dir {} {
-#  global app_Dir
-#  set answer [tk_messageBox -message "delete curr_Dir and Close?" \
-#    -icon warning -type yesno \
-#    -detail "...start again"]
-#    if {$answer == yes} {
-#  set dirfile_path [file join $app_Dir ".temp_dir"]
-#  exec rm -f $dirfile_path
-#  exit
-#  }
-#}
 
 proc lock_random {} {
   global temp_seed
@@ -708,7 +696,6 @@ proc mk_Help_Win {} {
     # Put a GUI in it
   place [label $w.text1 -text $help_text -justify left -fg blue] -x 20 -y 35 
     place [button $w.ok -text OK -command [list destroy $w]] -x 460 -y 690
-
 }
 
 #========================================================================================================
@@ -1599,9 +1586,7 @@ bind . <Configure> {
     place .lb__outpath -x 20 -y [expr 670 +  %h - 720];#670
     place .mb_format -x 260 -y [expr 669 +  %h - 720];#669   
     place .lb_appname -x [expr 580 +  %w - 800] -y 5
-
     place .lb_info_key  -x 24 -y [expr 590 +  %h - 720]
-
     }
 }
 
