@@ -9,10 +9,9 @@ Input:
 Output:
 
 - Csound score ('temp_csound.csd')
-
 - .Wav or aiff soundfile (stereo)
 
-Possible Treatments
+Possible Treatments:
 
 - change all time-distances with random seed ('set rnd dx')
 - change time-distances manually
