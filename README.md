@@ -13,7 +13,7 @@ Output:
 
 Possible Treatments:
 
-- change all time-distances with random seed ('set rnd dx')
+- change all time-distances with random seed (button: 'set rnd dx')
 - change/edit time-distances manually
 - change/edit volume manually
 - change/edit transposition manually
