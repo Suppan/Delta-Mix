@@ -329,7 +329,6 @@ proc reset_m_data_default {} {
   set n_colorList [llength $colorList]
   set puls_sum [ladd $dxList]
 
-
   .c delete "all"
   .c2 delete "all"
 
@@ -338,7 +337,6 @@ proc reset_m_data_default {} {
   set all_elem {}
   set selected {}
   set all_values {}
-
 
   for {set x 0} {$x < $sf_List_len} {incr x} {
       set pathx [lindex $sf_List $x]
@@ -358,6 +356,8 @@ proc reset_m_data_default {} {
   "seed" $seed "temp_seed" $temp_seed  "dur_sec" $dur_sec "slider_pos" $slider_pos "slider_sum" $slider_sum "list_reps" $list_reps "open_sf" $open_sf "select_sf_addx" $select_sf_addx]
   write_m_data_file $data_pairs
 
+  set list_reps 0
+  update_list_reps_state
 
   CreateCanvas
   updateCanvas $graph_w $graph_h
@@ -740,8 +740,6 @@ menu .mbar.file
 .mbar.file add separator
 .mbar.file add command -label "Preferences" -accelerator "Command-‚" -command { mk_Pref_Win }
  
-
-
 bind . <Command-n> { open_new_dir }
 bind . <Command-,> { mk_Pref_Win }
 
@@ -800,7 +798,6 @@ proc update_param_stat {} {
   global selected1
   global selected2
   global selected3
-
   global dxList
   global sf_mul_List
   global sf_transp_List
@@ -1205,7 +1202,6 @@ set all_values3 {}
 set all_values4 {}
 
 proc updateCanvas2 {w} {
-
   global select_sf_addx
   global dxList
   global sf_mul_List
@@ -1237,7 +1233,6 @@ proc CreateCanvas2 {} {
   
   set graph_len [get_graph_len]
   set graph_max_y [get_List_max $colorList]
-  
   set sel2_rect_id [.c2 create rectangle 0 0 0 0 -fill "white smoke" -outline lightgray]
 
   draw_dx $dxList
@@ -1287,7 +1282,6 @@ proc draw_dx {liste} {
 
   set graph2_len [llength $liste]
   set graph2_max_y [get_List_max $liste]
-
   set all_elem2 {}
   set all_values2 {}
 
@@ -1361,14 +1355,11 @@ proc draw_db {liste} {
 
   set graph2_len [llength $liste]
   set graph2_max_y [get_List_max $liste]
-
   set all_elem3 {}
   set all_values3 {}
-
   set 0_dby 20
   set 0_dby_id [.c2 create line 25 $0_dby $graph2_w $0_dby -width 1 -fill #1c79d9 -state hidden] ;# -dash {4 4}]
   set dbx_elem1 [.c2 create text 35 [expr $0_dby - 7] -text "0 dB" -fill #1c79d9 -font {-family menlo -size 9} -state hidden]
-
   set 0_dby2 140
   set 0_dby_id2 [.c2 create line 25 $0_dby2 $graph2_w $0_dby2 -width 1 -fill #1c79d9 -state hidden] ;# -dash {4 4}]
   set dbx_elem2 [.c2 create text 35 [expr $0_dby2 - 7] -text "-80 dB" -fill #1c79d9 -font {-family menlo -size 9} -state hidden]
@@ -1414,7 +1405,6 @@ proc update_draw_tr {liste} {
     set idyy [lindex $all_values4 $x]  
     set x1 [get_x $graph2_w $graph2_rand $graph2_len  [expr $x + 1]]
     .c2 itemconfigure $idzz -text $trx_val
-
     set durx [lindex $sf_dur_List $x]
     set durx1 [round_scaleval $durx 2]
     .c2 itemconfigure $idyy -text $durx1
@@ -1437,10 +1427,8 @@ proc draw_tr {liste} {
 
   set graph2_len [llength $liste]
   set graph2_max_y [get_List_max $liste]
-
   set all_elem4 {}
   set all_values4 {}
-
   set trx_elem1 [.c2 create text 30 20 -text "dur:" -fill gray -font {-family menlo -size 9} -state hidden]
   set trx_elem2 [.c2 create text 33 80 -text "tr:" -fill gray -font {-family menlo -size 9} -state hidden]
   for {set x 0} {$x < $graph2_len} {incr x} {
@@ -1556,7 +1544,6 @@ bind . <Configure> {
     set pixeladdy [expr %h - 720 + 0]
     set pixeladdx [expr (%w - 800) / 20]
     set graph_w $new_width
-  
     set graph2_w $new_width
     set graph_h [expr 300 + $pixeladdy ]
     .c configure -height [expr 300 + $pixeladdy ]
@@ -2779,6 +2766,8 @@ button  .b_set_Color_List -text "set rnd dx" -command {
     update_sf_dur_List
     updateCanvas $graph_w $graph_h
     updateCanvas2 $graph_w
+    update_list_reps_state
+
   } else {
     .c delete "all"
     set rexxt1 [.c create rectangle 4 4 [expr $graph_w + 2] [expr $graph_h + 2] -outline #1c79d9 -width 4 ]
@@ -2797,6 +2786,8 @@ button  .b_set_Color_List -text "set rnd dx" -command {
     update_sf_dur_List    
     CreateCanvas2
     updateCanvas2 $graph_w
+    ;#set list_reps 0
+    update_list_reps_state
   }
 }
 
