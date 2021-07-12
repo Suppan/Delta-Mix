@@ -8,10 +8,16 @@ Input:
 
 Output:
 
-- Csound score ("temp_csound.csd")
+- Csound score ('temp_csound.csd')
 
 - .Wav or aiff soundfile (stereo)
 
+Possible Treatments
+
+- change all time-distances with random seed ('set rnd dx')
+- change time-distances manually
+- change volume manually
+- change transposition manually
 
 ## Download
 [DeltaMix](https://github.com/Suppan/DeltaMix/releases/)
