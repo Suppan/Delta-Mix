@@ -9,14 +9,14 @@ Input:
 Output:
 
 - Csound score ('temp_csound.csd')
-- .Wav or aiff soundfile (stereo)
+- Wav or Aiff soundfile (stereo)
 
 Possible Treatments:
 
 - change all time-distances with random seed ('set rnd dx')
-- change time-distances manually
-- change volume manually
-- change transposition manually
+- change/edit time-distances manually
+- change/edit volume manually
+- change/edit transposition manually
 
 ## Download
 [DeltaMix](https://github.com/Suppan/DeltaMix/releases/)
