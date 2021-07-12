@@ -645,8 +645,7 @@ proc mk_Pref_Win {} {
 
   #write_pref_data
     place [button $w.set -text UPDATE -command {
-    write_pref_data $csound_terminal_path_x $default_Dir_x
-    }
+    write_pref_data $csound_terminal_path_x $default_Dir_x}
     ] -x 120 -y 150
     place [button $w.ok -text CLOSE -command [list destroy $w]] -x 580 -y 150
 }
