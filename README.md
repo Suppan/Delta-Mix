@@ -2,6 +2,17 @@
 
 Application for basic mixing of sound samples with algorithmic based time-intervals
 
+Input:
+
+folder with soundfiles (mono or stereo)
+
+Output:
+
+- Csound-score
+
+- .Wav or aiff soundfile (stereo)
+
+
 
 ## Download
 [DeltaMix](https://github.com/Suppan/DeltaMix/releases/)
@@ -12,7 +23,6 @@ Application for basic mixing of sound samples with algorithmic based time-interv
 - [Csound](https://csound.com)
 
 ## How to use
-
 
 - start the Tcl-Tk Application with the terminal command "wish Main.tcl"
 
