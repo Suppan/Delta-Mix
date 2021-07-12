@@ -8,7 +8,7 @@ folder with soundfiles (mono or stereo)
 
 Output:
 
-- Csound score (temp_csound.csd)
+- Csound score ("temp_csound.csd")
 
 - .Wav or aiff soundfile (stereo)
 
