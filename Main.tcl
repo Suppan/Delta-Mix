@@ -654,10 +654,46 @@ proc mk_Pref_Win {} {
 
 set counter2 0
 
-set help_text "
+set help_text "DeltaMix help
 
-in progress...
+--------------------
+1. key-commands:
+--------------------
 
+up-arrow and down-arrow (shift) -> edit value of selected points
+left-arrow and right-arrow -> move selection
+press 0 -> set default (0)
+press o -> opens selected sf (with changed param dB and tr)
+
+cmd-1 -> edit dx (time intervals)
+cmd-2 -> edit volume (dB)
+cmd-3 -> edit transposition (halftones)
+
+cmd-E -> eval Csound
+cmd-L -> lock *ut* (universal-time for 'set rnd dx')
+cmd-shift-L -> unlock *ut* (universal-time for 'set rnd dx')
+
+cmd-N -> choose new directory (soundfiles)
+cmd-; -> open Win to set Preferences (path to csound and deault soundfile directory)
+
+opt-cmd-0 -> rest order of soundfiles and set all dx to 1 / all dB to 0 / all Tr to 0
+
+cmd-Q -> Quit
+
+----------------------------------------
+2. mouse-actions (sf + edit window):
+----------------------------------------
+
+click on point (shift) -> select (extend selection)
+click on dx/dB/tr value (shift) -> select (extend selection)
+click/hold and move -> make rectangle for selection
+double-click on sf-name -> open sf (default)
+
+---------------------
+3. set rnd dx:
+---------------------
+
+calc proportions depending of the new order (without repetitions if len > len sf)
 
 "
 
@@ -668,11 +704,11 @@ proc mk_Help_Win {} {
     # Make the toplevel
     toplevel $w
     wm title $w "Help"
-  wm geometry $w "500x700+250+50"
+  wm geometry $w "550x730+250+50"
   wm resizable $w 0 0
     # Put a GUI in it
-  place [label $w.text1 -text $help_text] -x 20 -y 35 
-    place [button $w.ok -text OK -command [list destroy $w]] -x 420 -y 650
+  place [label $w.text1 -text $help_text -justify left -fg blue] -x 20 -y 35 
+    place [button $w.ok -text OK -command [list destroy $w]] -x 460 -y 690
 
 }
 
@@ -859,12 +895,8 @@ bind . <KeyPress-h> { mk_Help_Win }
 ttk::label .lb_appname -text "DeltaMix v0.22"  -font "menlo 24" 
 place .lb_appname -x 550 -y 5
 
-ttk::label .lb_info_txt_dur -text "sum dx = entire dur - dur of last soundfile"  -font "menlo 11" -foreground #1c79d9
-ttk::label .lb_info_key1 -text "up-arrow and down-arrow (shift) -> edit value of selected points"  -font "menlo 11" -foreground #1c79d9
-ttk::label .lb_info_key2 -text "left-arrow and right-arrow -> move selection"  -font "menlo 11" -foreground #1c79d9
-ttk::label .lb_info_key3 -text "click on point (shift) -> select (extend selection)"  -font "menlo 11" -foreground #1c79d9
-ttk::label .lb_info_key4 -text "press 0 -> set default (0)"  -font "menlo 11" -foreground #1c79d9
-ttk::label .lb_info_key5 -text "press o -> opens selected sf (with changed param dB and tr)"  -font "menlo 11" -foreground #1c79d9
+ttk::label .lb_info_txt_dur -text "sum dx = entire dur - dur of last soundfile"  -font "menlo 11" -foreground gray
+ttk::label .lb_info_key -text "press h -> opens help window"  -font "menlo 11" -foreground gray
 
 set n_colorList [llength $colorList]
 ttk::label .lb_colorList_len -text "\[len = $n_colorList\]"
@@ -938,13 +970,9 @@ place .check_open_sf -x 660 -y 675
 place .slider_dur_sec -x 30 -y 42
 place .lb_durx -x [expr 25 + ($slider_pos * 6)] -y 20  
 place .lb_dur -x 720 -y 40 
-place .lb_info_txt_dur  -x 20 -y 4
+place .lb_info_txt_dur  -x 28 -y 4
 
-place .lb_info_key1  -x 24 -y 590
-place .lb_info_key2  -x 24 -y 610
-place .lb_info_key3  -x 24 -y 630
-place .lb_info_key4  -x 24 -y 650
-place .lb_info_key5  -x 150 -y 85
+place .lb_info_key  -x 24 -y 590
 
 
 
@@ -959,7 +987,7 @@ if {$select_sf_addx == "dx"} {
   place .slider_dur_sec -x 30 -y 42
   place .lb_durx -x [expr 25 + ($slider_pos * 6)] -y 20
   place .lb_dur -x 720 -y 40 
-  place .lb_info_txt_dur  -x 20 -y 4
+  place .lb_info_txt_dur  -x 28 -y 4
   }
 
 ttk::radiobutton .rb1_x -text "Dx" -value "dx" -variable select_sf_addx -command {  set select_sf_addx "dx"
@@ -1573,10 +1601,7 @@ bind . <Configure> {
     place .mb_format -x 260 -y [expr 669 +  %h - 720];#669   
     place .lb_appname -x [expr 580 +  %w - 800] -y 5
 
-    place .lb_info_key1  -x 24 -y [expr 590 +  %h - 720]
-    place .lb_info_key2  -x 24 -y [expr 610 +  %h - 720]
-    place .lb_info_key3  -x 24 -y [expr 630 +  %h - 720] 
-    place .lb_info_key4  -x 24 -y [expr 650 +  %h - 720]
+    place .lb_info_key  -x 24 -y [expr 590 +  %h - 720]
 
     }
 }

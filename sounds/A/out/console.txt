@@ -4,7 +4,7 @@
 libsndfile-1.0.28
 WARNING: could not open library '/Library/Frameworks/CsoundLib64.framework/Versions/6.0/Resources/Opcodes64/libfluidOpcodes.dylib' (-1)
 WARNING: could not open library '/Library/Frameworks/CsoundLib64.framework/Versions/6.0/Resources/Opcodes64/librtjack.dylib' (-1)
-UnifiedCSD:  /Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/out/4-ugly-horn_speed=1.0_gain0.csd
+UnifiedCSD:  /Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/temp_csound.csd
 STARTING FILE
 Creating options
 Creating orchestra
@@ -21,17 +21,51 @@ graphics suppressed, ascii substituted
 0dBFS level = 1.0
 orch now loaded
 audio buffered in 1024 sample-frame blocks
-writing 4096-byte blks of shorts to /Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/out/4-ugly-horn_speed=1.0_gain0.wav (AIFF)
+writing 4096-byte blks of shorts to /Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/out/mix_out.wav (AIFF)
 SECTION 1:
+new alloc for instr 1:
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/2-machine-noise1.wav':
+         44100 Hz, 2 channel(s), 162024 sample frames
+
+B  0.000 ..  7.826 T  7.826 TT  7.826 M:  0.99884  0.71707
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/5-crowd.wav':
+         44100 Hz, 2 channel(s), 196098 sample frames
+
+B  7.826 .. 10.435 T 10.435 TT 10.435 M:  0.32019  0.29396
 new alloc for instr 1:
 diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/4-ugly-horn.wav':
          44100 Hz, 2 channel(s), 88665 sample frames
 
-B  0.000 ..  2.011 T  2.011 TT  2.011 M:  0.95480  0.99884
+B 10.435 .. 20.870 T 20.870 TT 20.870 M:  1.03891  1.15509
+	 number of samples out of range:        6       47
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/0-sticks.wav':
+         44100 Hz, 2 channel(s), 416892 sample frames
+
+B 20.870 .. 28.696 T 28.696 TT 28.696 M:  0.57331  0.57427
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/3-machine-noise2.wav':
+         44100 Hz, 2 channel(s), 111335 sample frames
+
+B 28.696 .. 36.522 T 36.522 TT 36.522 M:  0.73779  0.99890
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/6-kung-fu.wav':
+         44100 Hz, 2 channel(s), 164100 sample frames
+
+B 36.522 .. 41.739 T 41.739 TT 41.739 M:  0.99698  0.99884
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/8-children.wav':
+         44100 Hz, 2 channel(s), 341120 sample frames
+
+B 41.739 .. 44.348 T 44.348 TT 44.348 M:  0.88571  0.97723
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/7-car-stop.wav':
+         44100 Hz, 2 channel(s), 307426 sample frames
+
+B 44.348 .. 60.000 T 60.000 TT 60.000 M:  0.81107  0.99850
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/1-water-splash.wav':
+         44100 Hz, 2 channel(s), 164070 sample frames
+
+B 60.000 .. 63.720 T 63.721 TT 63.721 M:  0.99884  0.95984
 Score finished in csoundPerform().
 inactive allocs returned to freespace
-end of score.		   overall amps:  0.95480  0.99884
-	   overall samples out of range:        0        0
+end of score.		   overall amps:  1.03891  1.15509
+	   overall samples out of range:        6       47
 0 errors in performance
-Elapsed time at end of performance: real: 0.010s, CPU: 0.009s
-2048 4096 sample blks of shorts written to /Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/out/4-ugly-horn_speed=1.0_gain0.wav (AIFF)
+Elapsed time at end of performance: real: 0.376s, CPU: 0.366s
+2048 4096 sample blks of shorts written to /Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/out/mix_out.wav (AIFF)
