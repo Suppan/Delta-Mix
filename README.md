@@ -1,10 +1,10 @@
 # **DeltaMix**
 
-Application for basic mixing of sound samples with algorithmic based time-intervals
+Application for basic mixing of sound samples with algorithmic based time-intervals written in tcl-tk
 
 Input:
 
-folder with soundfiles (mono or stereo)
+- folder with soundfiles (mono or stereo)
 
 Output:
 
@@ -19,6 +19,7 @@ Output:
 ## Additional Software  
 
 - [Tcl-Tk](https://www.tcl.tk) Version 8.6.11 (ie. via homebrew)
+
 - [Csound](https://csound.com)
 
 ## How to use
