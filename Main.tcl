@@ -319,7 +319,7 @@ proc reset_m_data_default {} {
   set temp_seed {}
   set list_reps 0
   set dur_sec 60
-  set slider_sum 10
+  set slider_sum 2
   set slider_pos 50
   set open_sf 1
   #set select_sf_addx "dB0"
@@ -362,6 +362,7 @@ proc reset_m_data_default {} {
   update_sf_dur_List    
   CreateCanvas2
   updateCanvas2 $graph_w
+  update_tempox $dur_sec
 }
 
 
@@ -1654,7 +1655,7 @@ bind . <Configure> {
     place .check_open_sf -x [expr 660 +  %w - 800] -y [expr 675 +  %h - 720];#675
     place .b_evaluate -x [expr 450 +  %w - 800] -y [expr 668 +  %h - 720];#668
     place .b_open_sf -x [expr 560 +  %w - 800] -y [expr 668 +  %h - 720];#668
-    place .b_open_script -x [expr 447 +  %w - 800] -y [expr 628 +  %h - 720];#628 
+    place .b_open_script -x [expr 455 +  %w - 800] -y [expr 628 +  %h - 720];#628 
     place .b_open_console_txt -x [expr 550 +  %w - 800] -y [expr 628 +  %h - 720];#628 
     place .b_empty_temp -x [expr 660 +  %w - 800] -y [expr 628 +  %h - 720]
     place .enText_outpath -x 100 -y [expr 668 +  %h - 720];#668 
@@ -2799,7 +2800,7 @@ button  .b_open_folder -text "open sf Dir" -command { open_sound_folder }
 place .b_open_folder -x 20 -y 77 
 
     
-button  .b_open_script -text "Cs score" -command { 
+button  .b_open_script -text "out.csd" -command { 
     set temp_csd_path [file join "$curr_Dir/out" "$outpath.csd"]
     set test [file exist $temp_csd_path]
     if {$test == 1} { exec open $temp_csd_path }
@@ -2826,72 +2827,7 @@ button  .b_update_ut -text "ut->" -command { set seed $temp_seed
 puts $temp_seed }
 place .b_update_ut -x 450 -y 77
 
-# keep it for safety reasons (because of set_new_order... )
-button  .b_set_Color_List -text "set rnd dx" -command { 
-  #set random state:
-  if {$seed == ""} {set temp_seed [clock seconds]} else {set temp_seed $seed}
-
-  expr srand($temp_seed)
-
-  if {$list_reps == 1} {set colorList [random_dx [llength $sf_List] $len_list]} else { 
-    set colorList [shuffle [mk_colorList0]] }
-
-  set dxList [get_dx_list $colorList]
-
-  .lb_colorList_len configure -text "\[len = [llength $colorList]\]"  
-
-  .lb_durx configure -text [format "%s' %s\"" [expr round(floor($dur_sec / 60))] [expr round($dur_sec) % 60]]
-
-  if {[llength $colorList] == [llength $all_elem] } {
-
-    set selected {}
-    foreach idx $all_elem {.c itemconfigure $idx -fill #1c79d9 -outline #1c79d9}
- 
-    set selected1 {}
-    foreach idx $all_elem2 {.c2 itemconfigure $idx -fill gray -outline gray}
-
-    set selected2 {}
-    foreach idx $all_elem3 {.c2 itemconfigure $idx -fill lightgray -outline #1c79d9}
-
-    set selected3 {}
-    foreach idx $all_elem4 {.c2 itemconfigure $idx -fill gray}
-
-    set id_data [dict create]
-    set len [llength $colorList]
-
-    for {set x 0} {$x < $len} {incr x} {
-      set colorx [lindex $colorList $x]
-      set idx [lindex $all_elem $x]
-      dict set id_data $idx $colorx
-      }
-    update_sf_dur_List
-    updateCanvas $graph_w $graph_h
-    updateCanvas2 $graph_w
-    update_list_reps_state
-
-  } else {
-    .c delete "all"
-    set rexxt1 [.c create rectangle 4 4 [expr $graph_w + 2] [expr $graph_h + 2] -outline #1c79d9 -width 4 ]
-    set all_lines {}
-    set all_elem {}
-    set selected {}
-    set all_values {}
-
-    CreateCanvas
-    updateCanvas $graph_w $graph_h
-    .c2 delete "all"
-    set sf_mul_List [lrepeat [llength $colorList] 0]
-    set sf_transp_List [lrepeat [llength $colorList] 0]
-    #set sf_dur_List {}
-    #foreach y $colorList {set durx [lindex $sf_dur0_List $y]; lappend sf_dur_List $durx}  
-    update_sf_dur_List    
-    CreateCanvas2
-    updateCanvas2 $graph_w
-    ;#set list_reps 0
-    update_list_reps_state
-  }
-}
-
+button  .b_set_Color_List -text "set rnd dx" -command { set_new_order }
 place .b_set_Color_List -x 660 -y 160
 
 #========================================================================================================
