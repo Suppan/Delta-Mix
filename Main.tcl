@@ -571,8 +571,9 @@ proc open_sound_folder {} {
 }
 
 proc open_csound_csd {} {
+  global outpath
   global curr_Dir
-   exec open "$curr_Dir/temp_csound.csd"
+  exec open "$curr_Dir/out/$outpath.csd"
 }
 
 proc open_csound_sf {} {
@@ -815,7 +816,6 @@ start_delta_mix
 menu .mbar
 .mbar add cascade -label "File" -menu .mbar.file
 .mbar add cascade -label "Edit" -menu .mbar.edit
-.mbar add cascade -label "Exec" -menu .mbar.exec
 .mbar add cascade -label "Parameter" -menu .mbar.param
 .mbar add cascade -label "Window" -menu .mbar.window
 
@@ -823,40 +823,33 @@ menu .mbar
 # menu1 File
 
 menu .mbar.file
+.mbar.file add command -label "Open soundfile Dir in Finder" -accelerator Command-O -command {open_sound_folder }
 .mbar.file add command -label "New soundfile Dir" -accelerator Command-Option-N -command { open_new_dir }
+.mbar.file add separator
+.mbar.file add command -label "Delete temp Folder" -accelerator Command-Delete -command { delete_temp_files }
 .mbar.file add separator
 .mbar.file add command -label "Preferences" -accelerator "Command-‚" -command { mk_Pref_Win }
  
 bind . <Command-Option-n> { open_new_dir }
 bind . <Command-,> { mk_Pref_Win }
+bind . <Command-Key-BackSpace> {delete_temp_files}
+bind . <Command-o> { open_sound_folder }
 
 #============================================================================
 # menu2 Edit
 
 menu .mbar.edit
-.mbar.edit add command -label "Open Soundfile Folder" -accelerator Command-O -command {open_sound_folder }
-.mbar.edit add command -label "Delete temp Folder" -accelerator Command-Delete -command { delete_temp_files }
-#.mbar.edit add command -label "rm curr_Dir and Close" -accelerator Command-Shift-Delete -command { cleanup_dir }
-
-bind . <Command-Key-BackSpace> {delete_temp_files}
-#bind . <Command-Shift-Key-BackSpace> {cleanup_dir}
-bind . <Command-o> { open_sound_folder }
-
-#============================================================================
-# menu3 Csound
-
-menu .mbar.exec
-.mbar.exec add command -label "Evaluate Csound" -accelerator Command-E -command {eval_Csound }
-.mbar.exec add command -label "Open SoundFile Mix" -accelerator Command-Shift-O -command { open_csound_sf}
-.mbar.exec add separator
-.mbar.exec add command -label "Open console" -accelerator Command-C -command { open_csound_console }
-.mbar.exec add command -label "Open Csound score" -accelerator Command-D -command { open_csound_csd }
-.mbar.exec add separator
-.mbar.exec add command -label "lock Random" -accelerator Command-L -command { lock_random }
-.mbar.exec add command -label "unlock Random" -accelerator Command-Shift-L -command { unlock_random }
-.mbar.exec add separator
-.mbar.exec add command -label "Set new Order and dx" -accelerator Command-Option-R -command { set_new_order }
-.mbar.exec add command -label "Reset Order and dx" -accelerator Command-Option-0 -command { reset_order_with_test }
+.mbar.edit add command -label "Evaluate Csound" -accelerator Command-E -command {eval_Csound }
+.mbar.edit add command -label "Open SoundFile Mix" -accelerator Command-Shift-O -command { open_csound_sf}
+.mbar.edit add separator
+.mbar.edit add command -label "Open console output" -accelerator Command-C -command { open_csound_console }
+.mbar.edit add command -label "Open Csound score" -accelerator Command-D -command { open_csound_csd }
+.mbar.edit add separator
+.mbar.edit add command -label "lock Random" -accelerator Command-L -command { lock_random }
+.mbar.edit add command -label "unlock Random" -accelerator Command-Shift-L -command { unlock_random }
+.mbar.edit add separator
+.mbar.edit add command -label "Set new Order and dx" -accelerator Command-Option-R -command { set_new_order }
+.mbar.edit add command -label "Reset Order and dx" -accelerator Command-Option-0 -command { reset_order_with_test }
 
 bind . <Command-e> { eval_Csound }
 bind . <Command-O> { open_csound_sf }
@@ -868,7 +861,7 @@ bind . <Command-Option-r> { set_new_order }
 bind . <Command-Option-0> { reset_order_with_test }
 
 #============================================================================
-# menu4 Param
+# menu3 Param
 
 set param_stat1 1
 set param_stat2 0
@@ -947,7 +940,7 @@ bind . <Command-KeyPress-3> {
 }
 
 #============================================================================
-# menu5 Window
+# menu4 Window
 
 menu .mbar.window
 .mbar.window add command -label "Open DeltaMix Help"  -accelerator h -command { mk_Help_Win }
