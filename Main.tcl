@@ -367,7 +367,7 @@ proc reset_m_data_default {} {
 }
 
 #---------------------------
-#set random order
+#  set random order
 #---------------------------
 
 # shuffle color_List (= pos list)
@@ -426,8 +426,101 @@ proc get_dx_list {liste} {
     return [lreverse $bag]
 }
 
+proc set_new_order {} { 
+  global seed
+  global colorList
+  global list_reps
+  global len_list
+  global sf_List
+  global dxList
+  global dur_sec
+  global all_elem
+  global all_elem2
+  global all_elem3
+  global all_elem4
+  global id_data
+  global graph_w
+  global graph_h
+  global rexxt1
+  #add global for sub-proc:
+  global graph_max_y
+  global graph_rand
+  global sf_mul_List
+  global sf_dur0_List
+  global sf_dur_List
+  global sf_transp_List
+  global pixeladdy
+  global graph_rect_size
+  global all_lines
+  global all_lines_txt
+  global all_lines_txt_path
+  global all_values
+
+  if {$seed == ""} {set temp_seed [clock seconds]} else {set temp_seed $seed}  
+  expr srand($temp_seed)
+
+  if {$list_reps == 1} {set colorList [random_dx [llength $sf_List] $len_list]} else { 
+    set colorList [shuffle [mk_colorList0]] }
+
+  set dxList [get_dx_list $colorList]
+
+  .lb_colorList_len configure -text "\[len = [llength $colorList]\]"  
+
+  .lb_durx configure -text [format "%s' %s\"" [expr round(floor($dur_sec / 60))] [expr round($dur_sec) % 60]]
+
+  if {[llength $colorList] == [llength $all_elem] } {
+
+    set selected {}
+    foreach idx $all_elem {.c itemconfigure $idx -fill #1c79d9 -outline #1c79d9}
+ 
+    set selected1 {}
+    foreach idx $all_elem2 {.c2 itemconfigure $idx -fill gray -outline gray}
+
+    set selected2 {}
+    foreach idx $all_elem3 {.c2 itemconfigure $idx -fill lightgray -outline #1c79d9}
+
+    set selected3 {}
+    foreach idx $all_elem4 {.c2 itemconfigure $idx -fill gray}
+
+
+    set id_data [dict create]
+    set len [llength $colorList]
+
+    for {set x 0} {$x < $len} {incr x} {
+      set colorx [lindex $colorList $x]
+      set idx [lindex $all_elem $x]
+      dict set id_data $idx $colorx
+      }
+    update_sf_dur_List
+    updateCanvas $graph_w $graph_h
+    updateCanvas2 $graph_w
+    update_list_reps_state
+
+  } else {
+    .c delete "all"
+    set rexxt1 [.c create rectangle 4 4 [expr $graph_w + 2] [expr $graph_h + 2] -outline #1c79d9 -width 4 ]
+    set all_lines {}
+    set all_elem {}
+    set selected {}
+    set all_values {}
+
+    CreateCanvas
+    updateCanvas $graph_w $graph_h
+    .c2 delete "all"
+    set sf_mul_List [lrepeat [llength $colorList] 0]
+    set sf_transp_List [lrepeat [llength $colorList] 0]
+    #set sf_dur_List {}
+    #foreach y $colorList {set durx [lindex $sf_dur0_List $y]; lappend sf_dur_List $durx}  
+    update_sf_dur_List    
+    CreateCanvas2
+    updateCanvas2 $graph_w
+    ;#set list_reps 0
+    update_list_reps_state
+  }
+}
+
 #---------------------------
-# Menu functions
+#          end 
 #---------------------------
 
 proc delete_out_files {} {
@@ -638,9 +731,6 @@ proc mk_Pref_Win {} {
     place [button $w.ok -text CLOSE -command [list destroy $w]] -x 580 -y 150
 }
 
-
-set counter2 0
-
 set help_text "DeltaMix help
 
 --------------------
@@ -660,12 +750,14 @@ cmd-E -> eval Csound
 cmd-L -> lock *ut* (universal-time for 'set rnd dx')
 cmd-shift-L -> unlock *ut* (universal-time for 'set rnd dx')
 
-cmd-N -> choose new directory (soundfiles)
+cmd-opt-N -> choose new directory (soundfiles)
 cmd-; -> open Win to set Preferences (path to csound and deault soundfile directory)
 
-opt-cmd-0 -> rest order of soundfiles and set all dx to 1 / all dB to 0 / all Tr to 0
+cmd-opt-R -> set new order of soundfiles and set dx 
+cmd-opt-0 -> rest order of soundfiles and set all dx to 1 / all dB to 0 / all Tr to 0
 
 cmd-Q -> Quit
+
 
 ----------------------------------------
 2. mouse-actions (sf + edit window):
@@ -676,13 +768,9 @@ click on dx/dB/tr value (shift) -> select (extend selection)
 click/hold and move -> make rectangle for selection
 double-click on sf-name -> open sf (default)
 
----------------------
-3. set rnd dx:
----------------------
-
-calc proportions depending of the new order (without repetitions if len > len sf)
-
 "
+
+set counter2 0
 
 proc mk_Help_Win {} {
     # Make a unique widget name
@@ -691,11 +779,11 @@ proc mk_Help_Win {} {
     # Make the toplevel
     toplevel $w
     wm title $w "Help"
-  wm geometry $w "550x730+250+50"
+  wm geometry $w "550x680+250+50"
   wm resizable $w 0 0
     # Put a GUI in it
   place [label $w.text1 -text $help_text -justify left -fg blue] -x 20 -y 35 
-    place [button $w.ok -text OK -command [list destroy $w]] -x 460 -y 690
+    place [button $w.ok -text OK -command [list destroy $w]] -x 460 -y 640
 }
 
 #========================================================================================================
@@ -736,11 +824,11 @@ menu .mbar
 # menu1 File
 
 menu .mbar.file
-.mbar.file add command -label "New soundfile Dir" -accelerator Command-N -command { open_new_dir }
+.mbar.file add command -label "New soundfile Dir" -accelerator Command-Option-N -command { open_new_dir }
 .mbar.file add separator
 .mbar.file add command -label "Preferences" -accelerator "Command-‚" -command { mk_Pref_Win }
  
-bind . <Command-n> { open_new_dir }
+bind . <Command-Option-n> { open_new_dir }
 bind . <Command-,> { mk_Pref_Win }
 
 #============================================================================
@@ -768,6 +856,7 @@ menu .mbar.exec
 .mbar.exec add command -label "lock Random" -accelerator Command-L -command { lock_random }
 .mbar.exec add command -label "unlock Random" -accelerator Command-Shift-L -command { unlock_random }
 .mbar.exec add separator
+.mbar.exec add command -label "Set new Order and dx" -accelerator Command-Option-R -command { set_new_order }
 .mbar.exec add command -label "Reset Order and dx" -accelerator Command-Option-0 -command { reset_m_data_default }
 
 bind . <Command-e> { eval_Csound }
@@ -776,6 +865,7 @@ bind . <Command-c> { open_csound_console }
 bind . <Command-d> { open_csound_csd }
 bind . <Command-l> { lock_random }
 bind . <Command-L> { unlock_random }
+bind . <Command-Option-r> { set_new_order }
 bind . <Command-Option-0> { reset_m_data_default }
 
 #============================================================================
@@ -2726,9 +2816,11 @@ button  .b_update_ut -text "ut->" -command { set seed $temp_seed
 puts $temp_seed }
 place .b_update_ut -x 450 -y 77
 
+# keep it for safety reasons (because of set_new_order... )
 button  .b_set_Color_List -text "set rnd dx" -command { 
   #set random state:
-  if {$seed == ""} {set temp_seed [clock seconds]} else {set temp_seed $seed}  
+  if {$seed == ""} {set temp_seed [clock seconds]} else {set temp_seed $seed}
+
   expr srand($temp_seed)
 
   if {$list_reps == 1} {set colorList [random_dx [llength $sf_List] $len_list]} else { 
@@ -2744,7 +2836,7 @@ button  .b_set_Color_List -text "set rnd dx" -command {
 
     set selected {}
     foreach idx $all_elem {.c itemconfigure $idx -fill #1c79d9 -outline #1c79d9}
-
+ 
     set selected1 {}
     foreach idx $all_elem2 {.c2 itemconfigure $idx -fill gray -outline gray}
 
