@@ -530,13 +530,8 @@ proc set_new_order {} {
 
 proc delete_temp_files {} {
     global curr_Dir
-      set answer [tk_messageBox -message "delete \"~/temp\" folder?" \
-        -icon question -type yesno \
-        -detail "console.txt, collection of single sf and csd"]
-      if {$answer == yes} {
     set the_path "$curr_Dir/temp/"
     file delete -force $the_path
-    }
 }
 
 proc lock_random {} {
@@ -1039,12 +1034,47 @@ place .lb_info_txt_dur  -x 28 -y 4
 
 place .lb_info_key  -x 24 -y 590
 
+button  .b_open_folder -text "open sf Dir" -command { open_sound_folder }
+place .b_open_folder -x 20 -y 77 
+
+    
+button  .b_open_script -text "out.csd" -command { 
+    set temp_csd_path [file join "$curr_Dir/out" "$outpath.csd"]
+    set test [file exist $temp_csd_path]
+    if {$test == 1} { exec open $temp_csd_path }
+    }
+place .b_open_script -x 380 -y 628 
+
+#temp_console_out 
+button  .b_open_console_txt -text "console.txt" -command { open_csound_console }
+place .b_open_console_txt -x 460 -y 668 
+
+button  .b_evaluate -text "Evaluate" -command { eval_Csound }
+place .b_evaluate -x 555 -y 668
+
+button  .b_open_sf -text "Open" -command {     set temp_sf_path [file join "$curr_Dir/out" "$outpath.$out_format"]  
+    set out_file [file exist $temp_sf_path]
+    if {$out_file == 1} {exec open $temp_sf_path} else {bell}
+   }
+place .b_open_sf -x 485 -y 668
+
+button  .b_empty_temp -text "rm temp" -command {delete_temp_files}
+place .b_empty_temp -x 640 -y 628
+
+button  .b_update_ut -text "ut->" -command { set seed $temp_seed
+puts $temp_seed }
+place .b_update_ut -x 450 -y 77
+
+button  .b_set_Color_List -text "set rnd dx" -command { set_new_order }
+place .b_set_Color_List -x 660 -y 160
 
 
-proc refresCanvas {} {
-  ClearCanvas .c
-  CreateCanvas 
-}
+
+
+
+
+
+
 
 set select_sf_addx [dict get $m_data select_sf_addx];#"dB0"
 
@@ -1249,6 +1279,11 @@ proc CreateCanvas {} {
 
 set dB_0x [lindex $sf_mul_List 0]
 set transp_addx [lindex $sf_transp_List 0]
+
+proc refresCanvas {} {
+  ClearCanvas .c
+  CreateCanvas 
+}
 
 #========================================================================================================
 #
@@ -2615,7 +2650,7 @@ bind . <Shift-Key-Down> {
 #========================================================================================================
 
 proc make_single_csound_score {the_sf_Path durx transpx mulx outpathx} {
-  set str_coll [format "i1 %8.3f %10s %3.0f %5.1f \"%10s\"\n" 0 $durx $transpx $mulx $the_sf_Path]
+  set str_coll [format "i1 %8.3f %10s %3.0f %5.1f \"%10s\"" 0 $durx $transpx $mulx $the_sf_Path]
   set str_res [format "
 <CsoundSynthesizer>
 <CsOptions>
@@ -2645,9 +2680,9 @@ else
 aL diskin2 Sfilepath, ispeed, 0, 0, 0, 32
 outs aL*imul, aL*imul
 endif
-  endin
-</CsInstruments>
+endin
 
+</CsInstruments>
 <CsScore>
 %s
 e
@@ -2698,7 +2733,6 @@ proc make_csound_score {} {
   for {set x 0} {$x < $graph_len} {incr x} {
   set y_val [lindex $colorList $x]
   set pathx [lindex $sf_List $y_val] 
-
   if {$y_val < $len_SF} {
       set tx0 [lindex $txList $x]
       set tx1 [expr $dur_fact * $tx0]
@@ -2707,8 +2741,10 @@ proc make_csound_score {} {
       set mulx [lindex $sf_mul_List $x]
       set transpx [lindex $sf_transp_List $x]
       ;#append str_coll "i1 $tx $durx $mulx  $transp_midi \"$pathx\"\n"
-      append str_coll [format "i1 %8.3f %10s %3.0f %5.1f \"%10s\"\n" $tx $durx $transpx $mulx $pathx]
-    }}
+      if {$x == 0} { append str_coll [format "i1 %8.3f %10s %3.0f %5.1f \"%10s\"" $tx $durx $transpx $mulx $pathx] } else {
+                    append str_coll [format "\ni1 %8.3f %10s %3.0f %5.1f \"%10s\"" $tx $durx $transpx $mulx $pathx] }
+      }
+  }
 
   set str_res [format "
 <CsoundSynthesizer>
@@ -2739,11 +2775,11 @@ else
 aL diskin2 Sfilepath, ispeed, 0, 0, 0, 32
 outs aL*imul, aL*imul
 endif
-  endin
-</CsInstruments>
+endin
 
+</CsInstruments>
 <CsScore>
-%s
+%s 
 e
 </CsScore>
 </CsoundSynthesizer>" "\"$the_sf_Path\"" $str_coll]
@@ -2789,39 +2825,7 @@ proc eval_Csound {} {
 #
 #========================================================================================================
 
-button  .b_open_folder -text "open sf Dir" -command { open_sound_folder }
-place .b_open_folder -x 20 -y 77 
 
-    
-button  .b_open_script -text "out.csd" -command { 
-    set temp_csd_path [file join "$curr_Dir/out" "$outpath.csd"]
-    set test [file exist $temp_csd_path]
-    if {$test == 1} { exec open $temp_csd_path }
-    }
-place .b_open_script -x 380 -y 628 
-
-#temp_console_out 
-button  .b_open_console_txt -text "console.txt" -command { open_csound_console }
-place .b_open_console_txt -x 460 -y 668 
-
-button  .b_evaluate -text "Evaluate" -command { eval_Csound }
-place .b_evaluate -x 555 -y 668
-
-button  .b_open_sf -text "Open" -command {     set temp_sf_path [file join "$curr_Dir/out" "$outpath.$out_format"]  
-    set out_file [file exist $temp_sf_path]
-    if {$out_file == 1} {exec open $temp_sf_path} else {bell}
-   }
-place .b_open_sf -x 485 -y 668
-
-button  .b_empty_temp -text "rm temp" -command {delete_temp_files}
-place .b_empty_temp -x 640 -y 628
-
-button  .b_update_ut -text "ut->" -command { set seed $temp_seed
-puts $temp_seed }
-place .b_update_ut -x 450 -y 77
-
-button  .b_set_Color_List -text "set rnd dx" -command { set_new_order }
-place .b_set_Color_List -x 660 -y 160
 
 #========================================================================================================
 #

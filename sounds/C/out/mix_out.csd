@@ -27,15 +27,19 @@ else
 aL diskin2 Sfilepath, ispeed, 0, 0, 0, 32
 outs aL*imul, aL*imul
 endif
-  endin
+endin
+
 </CsInstruments>
-
 <CsScore>
-i1    0.000 5.995600907029479   0   0.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/9-car-horn-old.wav"
-i1   20.000 9.453333333333333  12   0.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/10-sticks.wav"
-i1   40.000 4.31156462585034   0   0.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/11-camera-noise.wav"
-i1   60.000 0.8539455782312925 -12   0.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/12-alabama.aif"
-
+i1    0.000   0.853946   0   0.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/12-alabama.aif"
+i1    4.749   5.995601   0   0.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/9-car-horn-old.wav"
+i1    9.497   0.853946   0   0.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/12-alabama.aif"
+i1   14.246   5.995601   0   0.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/9-car-horn-old.wav"
+i1   17.412   4.311565   0   0.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/11-camera-noise.wav"
+i1   18.995   9.453333   0   0.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/10-sticks.wav"
+i1   20.578   5.995601   0   0.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/9-car-horn-old.wav"
+i1   25.326   0.853946   0   0.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/12-alabama.aif"
+i1   30.075   5.995601   0   0.0 "/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/9-car-horn-old.wav" 
 e
 </CsScore>
 </CsoundSynthesizer>

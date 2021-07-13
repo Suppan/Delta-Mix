@@ -13,7 +13,7 @@ Creating score
 rtaudio: PortAudio module enabled ...
 using callback interface
 rtmidi: PortMIDI module enabled
-Elapsed time at end of orchestra compile: real: 0.004s, CPU: 0.003s
+Elapsed time at end of orchestra compile: real: 0.003s, CPU: 0.003s
 sorting score ...
 	... done
 Elapsed time at end of score sort: real: 0.004s, CPU: 0.004s
@@ -24,26 +24,49 @@ audio buffered in 1024 sample-frame blocks
 writing 4096-byte blks of shorts to /Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/out/mix_out.wav (AIFF)
 SECTION 1:
 new alloc for instr 1:
-diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/9-car-horn-old.wav':
-         44100 Hz, 2 channel(s), 264406 sample frames
-
-B  0.000 .. 20.000 T 20.000 TT 20.000 M:  0.97723  0.78485
-diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/10-sticks.wav':
-         44100 Hz, 2 channel(s), 416892 sample frames
-
-B 20.000 .. 40.000 T 40.000 TT 40.000 M:  0.56155  0.56100
-diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/11-camera-noise.wav':
-         44100 Hz, 1 channel(s), 190140 sample frames
-
-B 40.000 .. 60.000 T 60.000 TT 60.000 M:  0.97717  0.97717
 diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/12-alabama.aif':
          44100 Hz, 1 channel(s), 37659 sample frames
 
-B 60.000 .. 60.854 T 60.854 TT 60.854 M:  0.40438  0.40438
+B  0.000 ..  4.749 T  4.749 TT  4.749 M:  0.40438  0.40438
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/9-car-horn-old.wav':
+         44100 Hz, 2 channel(s), 264406 sample frames
+
+B  4.749 ..  9.497 T  9.497 TT  9.497 M:  0.97723  0.78485
+new alloc for instr 1:
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/12-alabama.aif':
+         44100 Hz, 1 channel(s), 37659 sample frames
+
+B  9.497 .. 14.246 T 14.246 TT 14.246 M:  0.40274  0.40692
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/9-car-horn-old.wav':
+         44100 Hz, 2 channel(s), 264406 sample frames
+
+B 14.246 .. 17.412 T 17.412 TT 17.412 M:  0.97723  0.78485
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/11-camera-noise.wav':
+         44100 Hz, 1 channel(s), 190140 sample frames
+
+B 17.412 .. 18.995 T 18.995 TT 18.995 M:  0.97849  0.97427
+new alloc for instr 1:
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/10-sticks.wav':
+         44100 Hz, 2 channel(s), 416892 sample frames
+
+B 18.995 .. 20.578 T 20.578 TT 20.578 M:  0.57880  0.57657
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/9-car-horn-old.wav':
+         44100 Hz, 2 channel(s), 264406 sample frames
+
+B 20.578 .. 25.326 T 25.326 TT 25.326 M:  1.16745  0.96634
+	 number of samples out of range:        6        0
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/12-alabama.aif':
+         44100 Hz, 1 channel(s), 37659 sample frames
+
+B 25.326 .. 30.075 T 30.075 TT 30.075 M:  0.40274  0.40692
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/9-car-horn-old.wav':
+         44100 Hz, 2 channel(s), 264406 sample frames
+
+B 30.075 .. 36.071 T 36.071 TT 36.071 M:  0.97723  0.78485
 Score finished in csoundPerform().
 inactive allocs returned to freespace
-end of score.		   overall amps:  0.97723  0.97717
-	   overall samples out of range:        0        0
+end of score.		   overall amps:  1.16745  0.97427
+	   overall samples out of range:        6        0
 0 errors in performance
-Elapsed time at end of performance: real: 0.172s, CPU: 0.168s
+Elapsed time at end of performance: real: 0.069s, CPU: 0.062s
 2048 4096 sample blks of shorts written to /Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/C/out/mix_out.wav (AIFF)
