@@ -646,10 +646,8 @@ proc upload_m_data {} {
 
   set m_data_path [file join $curr_Dir ".m_data"]
   set m_data_exists [file exist $m_data_path]
-
   if {$m_data_exists == 0} { reset_m_data_default }
   set m_data [read_m_data_file]   
-
   set colorList [dict get $m_data colorList]
   set dxList [dict get $m_data dxList]
   set sf_List  [dict get $m_data sf_List]
@@ -661,7 +659,6 @@ proc upload_m_data {} {
   set sf_chan_List [dict get $m_data sf_chan_List]
   set outpath [dict get $m_data outpath]
   set out_format [dict get $m_data out_format]
-
   set dirtail [file tail $curr_Dir]
   wm title . [format "soundfile Dir: ~/$dirtail/"]
   set temp_console_out [file join "$curr_Dir/out" "console.txt"]
@@ -706,22 +703,21 @@ set csound_terminal_path_x [dict get $prefs_data csound_terminal_path]
 set default_Dir_x [dict get $prefs_data default_Dir]
 
 proc mk_Pref_Win {} {
-    # Make a unique widget name
-    global counter
-    global csound_terminal_path_x
-    global default_Dir_x
-    set w .gui[incr counter]
+  global counter
+  global csound_terminal_path_x
+  global default_Dir_x
+  set w .gui[incr counter]
 
   set prefs_data [read_pref_data_file]
   set csound_terminal_path_x [dict get $prefs_data csound_terminal_path]
   set default_Dir_x [dict get $prefs_data default_Dir]
 
-    # Make the toplevel
-    toplevel $w
-    wm title $w "DeltaMix Preferences"
+  # Make the toplevel
+  toplevel $w
+  wm title $w "DeltaMix Preferences"
   wm geometry $w "700x200+250+50"
   wm resizable $w 0 0
-    # Put a GUI in it
+  # Put a GUI in it
   place [label $w.text1 -text "csound Path:"] -x 20 -y 35 
   ttk::entry $w.pref_outpath -textvariable csound_terminal_path_x -width 60
   place $w.pref_outpath -x 120 -y 35 
@@ -731,10 +727,10 @@ proc mk_Pref_Win {} {
   place $w.pref_default_Dir -x 120 -y 85
 
   #write_pref_data
-    place [button $w.set -text UPDATE -command {
-    write_pref_data $csound_terminal_path_x $default_Dir_x}
-    ] -x 120 -y 150
-    place [button $w.ok -text CLOSE -command [list destroy $w]] -x 580 -y 150
+  place [button $w.set -text UPDATE -command {
+  write_pref_data $csound_terminal_path_x $default_Dir_x}
+  ] -x 120 -y 150
+  place [button $w.ok -text CLOSE -command [list destroy $w]] -x 580 -y 150
 }
 
 set help_text "DeltaMix help
