@@ -738,7 +738,7 @@ set help_text "DeltaMix help
 
 up-arrow and down-arrow (shift) -> edit value of selected points
 left-arrow and right-arrow -> move selection
-press 0 -> set default (0)
+press 0 -> set selected parameter (dx/dB/tr) to default (0)
 press o -> opens selected sf (with changed param dB and tr)
 
 cmd-1 -> edit dx (time intervals)
