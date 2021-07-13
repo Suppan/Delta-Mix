@@ -366,6 +366,12 @@ proc reset_m_data_default {} {
   updateCanvas2 $graph_w
 }
 
+
+proc reset_order_with_test {} { 
+  set answer [tk_messageBox -message "reset all to default?" -icon question -type yesno]
+  if {$answer == yes} { reset_m_data_default }
+}
+
 #---------------------------
 #  set random order
 #---------------------------
@@ -857,10 +863,7 @@ menu .mbar.exec
 .mbar.exec add command -label "unlock Random" -accelerator Command-Shift-L -command { unlock_random }
 .mbar.exec add separator
 .mbar.exec add command -label "Set new Order and dx" -accelerator Command-Option-R -command { set_new_order }
-.mbar.exec add command -label "Reset Order and dx" -accelerator Command-Option-0 -command { 
-             set answer [tk_messageBox -message "reset all to default?" -icon question -type yesno]
-             if {$answer == yes} { reset_m_data_default }
-}
+.mbar.exec add command -label "Reset Order and dx" -accelerator Command-Option-0 -command { reset_order_with_test }
 
 bind . <Command-e> { eval_Csound }
 bind . <Command-O> { open_csound_sf }
@@ -869,9 +872,7 @@ bind . <Command-d> { open_csound_csd }
 bind . <Command-l> { lock_random }
 bind . <Command-L> { unlock_random }
 bind . <Command-Option-r> { set_new_order }
-bind . <Command-Option-0> { set answer [tk_messageBox -message "reset all to default?" -icon question -type yesno]
-                            if {$answer == yes} { reset_m_data_default }
-}
+bind . <Command-Option-0> { reset_order_with_test }
 
 #============================================================================
 # menu4 Param
