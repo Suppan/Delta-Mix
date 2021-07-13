@@ -819,7 +819,7 @@ menu .mbar
 
 menu .mbar.file
 .mbar.file add command -label "Open soundfile Dir in Finder" -accelerator Command-O -command {open_sound_folder }
-.mbar.file add command -label "New soundfile Dir" -accelerator Command-Option-N -command { open_new_dir }
+.mbar.file add command -label "New soundfile Dir (PWD)" -accelerator Command-Option-N -command { open_new_dir }
 .mbar.file add separator
 .mbar.file add command -label "Delete temp Folder" -accelerator Command-Delete -command { delete_temp_files }
 .mbar.file add separator
@@ -1067,14 +1067,6 @@ place .b_update_ut -x 450 -y 77
 
 button  .b_set_Color_List -text "set rnd dx" -command { set_new_order }
 place .b_set_Color_List -x 660 -y 160
-
-
-
-
-
-
-
-
 
 set select_sf_addx [dict get $m_data select_sf_addx];#"dB0"
 
@@ -2814,18 +2806,6 @@ proc eval_Csound {} {
   set test_catch [catch [exec $csound_terminal_path  --logfile=$temp_console_out $temp_csd_path]]
   if {$open_sf == 1 && $test_catch == 0} {exec open $temp_sf_path }
 }
-
-#========================================================================================================
-#
-#
-#
-#                                         Buttons
-#
-#
-#
-#========================================================================================================
-
-
 
 #========================================================================================================
 #
