@@ -33,8 +33,6 @@ set curr_Dir {}
 set default_Dir [file join $app_Dir "sounds/A"]
 set dirtail {}
 set no_close_write 0
-set compi [info hostname]
-#if {$compi == "mac-mini"} {}
 set seed {}
 set temp_seed {}
 set colorList {}
@@ -529,14 +527,13 @@ proc set_new_order {} {
 #          end 
 #---------------------------
 
-proc delete_out_files {} {
+proc delete_temp_files {} {
     global curr_Dir
-
-      set answer [tk_messageBox -message "delete \"~/out\" folder?" \
+      set answer [tk_messageBox -message "delete \"~/temp\" folder?" \
         -icon question -type yesno \
-        -detail "press Evaluate to create a new ~/out folder"]
+        -detail "console.txt, collection of single sf and csd"]
       if {$answer == yes} {
-    set the_path "$curr_Dir/out/"
+    set the_path "$curr_Dir/temp/"
     file delete -force $the_path
     }
 }
@@ -618,7 +615,6 @@ proc start_delta_mix {} {
   global graph_h
   global csound_terminal_path
   global default_Dir
-  global compi
   set curr_Dir [get_curr_Dir]
 
   set prefs_data [read_pref_data_file]
@@ -661,7 +657,7 @@ proc upload_m_data {} {
   set out_format [dict get $m_data out_format]
   set dirtail [file tail $curr_Dir]
   wm title . [format "soundfile Dir: ~/$dirtail/"]
-  set temp_console_out [file join "$curr_Dir/out" "console.txt"]
+  set temp_console_out [file join "$curr_Dir/temp" "console.txt"]
 }
 
 proc reset_Main {} {
@@ -838,10 +834,10 @@ bind . <Command-,> { mk_Pref_Win }
 
 menu .mbar.edit
 .mbar.edit add command -label "Open Soundfile Folder" -accelerator Command-O -command {open_sound_folder }
-.mbar.edit add command -label "Delete out Folder" -accelerator Command-Delete -command { delete_out_files }
+.mbar.edit add command -label "Delete temp Folder" -accelerator Command-Delete -command { delete_temp_files }
 #.mbar.edit add command -label "rm curr_Dir and Close" -accelerator Command-Shift-Delete -command { cleanup_dir }
 
-bind . <Command-Key-BackSpace> {delete_out_files}
+bind . <Command-Key-BackSpace> {delete_temp_files}
 #bind . <Command-Shift-Key-BackSpace> {cleanup_dir}
 bind . <Command-o> { open_sound_folder }
 
@@ -1657,10 +1653,10 @@ bind . <Configure> {
     place .lb_colorList_len -x [expr 680 +  %w - 800] -y 143
     place .check_open_sf -x [expr 660 +  %w - 800] -y [expr 675 +  %h - 720];#675
     place .b_evaluate -x [expr 450 +  %w - 800] -y [expr 668 +  %h - 720];#668
-    place .b_empty_out -x [expr 640 +  %w - 800] -y [expr 628 +  %h - 720]
     place .b_open_sf -x [expr 560 +  %w - 800] -y [expr 668 +  %h - 720];#668
-    place .b_open_script -x [expr 545 +  %w - 800] -y [expr 628 +  %h - 720];#628 
-    place .b_open_console_txt -x [expr 440 +  %w - 800] -y [expr 628 +  %h - 720];#628 
+    place .b_open_script -x [expr 447 +  %w - 800] -y [expr 628 +  %h - 720];#628 
+    place .b_open_console_txt -x [expr 550 +  %w - 800] -y [expr 628 +  %h - 720];#628 
+    place .b_empty_temp -x [expr 660 +  %w - 800] -y [expr 628 +  %h - 720]
     place .enText_outpath -x 100 -y [expr 668 +  %h - 720];#668 
     place .lb__outpath -x 20 -y [expr 670 +  %h - 720];#670
     place .mb_format -x 260 -y [expr 669 +  %h - 720];#669   
@@ -1830,8 +1826,8 @@ bind . <KeyPress-o> {
         set speedx2 [round_scaleval $speedx 2]
         set addstr "_speed=$speedx2"
         set addstr1 "_gain$mulx"
-        set outpathx [file join "$curr_Dir/out" "$pathnamex$addstr$addstr1$formatx"]
-        set csdpathx [file join "$curr_Dir/out" "$pathnamex$addstr$addstr1.csd"]
+        set outpathx [file join "$curr_Dir/temp" "$pathnamex$addstr$addstr1$formatx"]
+        set csdpathx [file join "$curr_Dir/temp" "$pathnamex$addstr$addstr1.csd"]
         eval_single_Csound $pathx $durx $trx $mulx $outpathx $csdpathx
         }
   }  else {bell}
@@ -2672,14 +2668,14 @@ proc eval_single_Csound {the_sf_Path durx transpx mulx outpathx csdpathx} {
     global temp_console_out
     global curr_Dir
 
-    set test [file exist "$curr_Dir/out/"]
+    set test [file exist "$curr_Dir/temp/"]
     if {$test == 0} { 
-                      set mkdir_path "$curr_Dir/out/"
+                      set mkdir_path "$curr_Dir/temp/"
                       exec mkdir -p $mkdir_path
                     }
     set temp_csound_str [make_single_csound_score $the_sf_Path $durx $transpx $mulx $outpathx]
     write_file $temp_csound_str $csdpathx
-    puts "$csound_terminal_path $csdpathx"
+    #puts "$csound_terminal_path $csdpathx"
     set test_catch [catch [exec $csound_terminal_path --logfile=$temp_console_out $csdpathx]]
     if {$test_catch == 0} {exec open $outpathx }
 }
@@ -2771,12 +2767,19 @@ proc eval_Csound {} {
   global csound_terminal_path
 
   set temp_sf_path [file join "$curr_Dir/out" "$outpath.$out_format"]
-  set temp_csd_path [file join "$curr_Dir" "temp_csound.csd"]  
+  set temp_csd_path [file join "$curr_Dir/out" "$outpath.csd"]  
   set temp_csound_str [make_csound_score]
-  
+
+  set mkdir_path1 "$curr_Dir/out/"
+  set test1 [file exist $mkdir_path1]
+  if {$test1 == 0 } { exec mkdir -p $mkdir_path1 }
+
+  set mkdir_path2 "$curr_Dir/temp/"
+  set test2 [file exist $mkdir_path2]
+  if {$test2 == 0 } {exec mkdir -p $mkdir_path2 }
+
   write_file $temp_csound_str $temp_csd_path
-  set mkdir_path "$curr_Dir/out/"
-  exec mkdir -p $mkdir_path
+
   #-ignorestderr
   set test_catch [catch [exec $csound_terminal_path  --logfile=$temp_console_out $temp_csd_path]]
   if {$open_sf == 1 && $test_catch == 0} {exec open $temp_sf_path }
@@ -2795,12 +2798,17 @@ proc eval_Csound {} {
 button  .b_open_folder -text "open sf Dir" -command { open_sound_folder }
 place .b_open_folder -x 20 -y 77 
 
-button  .b_open_script -text "temp.csd" -command { exec open "$curr_Dir/temp_csound.csd"}
-place .b_open_script -x 450 -y 628 
+    
+button  .b_open_script -text "Cs score" -command { 
+    set temp_csd_path [file join "$curr_Dir/out" "$outpath.csd"]
+    set test [file exist $temp_csd_path]
+    if {$test == 1} { exec open $temp_csd_path }
+    }
+place .b_open_script -x 380 -y 628 
 
 #temp_console_out 
 button  .b_open_console_txt -text "console.txt" -command { open_csound_console }
-place .b_open_console_txt -x 400 -y 668 
+place .b_open_console_txt -x 460 -y 668 
 
 button  .b_evaluate -text "Evaluate" -command { eval_Csound }
 place .b_evaluate -x 555 -y 668
@@ -2811,8 +2819,8 @@ button  .b_open_sf -text "Open" -command {     set temp_sf_path [file join "$cur
    }
 place .b_open_sf -x 485 -y 668
 
-button  .b_empty_out -text "remove out" -command {delete_out_files}
-place .b_empty_out -x 640 -y 628
+button  .b_empty_temp -text "rm temp" -command {delete_temp_files}
+place .b_empty_temp -x 640 -y 628
 
 button  .b_update_ut -text "ut->" -command { set seed $temp_seed
 puts $temp_seed }
@@ -2847,7 +2855,6 @@ button  .b_set_Color_List -text "set rnd dx" -command {
 
     set selected3 {}
     foreach idx $all_elem4 {.c2 itemconfigure $idx -fill gray}
-
 
     set id_data [dict create]
     set len [llength $colorList]
