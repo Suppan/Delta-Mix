@@ -29,7 +29,7 @@ Possible Treatments:
 
 ## How to use
 
-- start the application with the terminal command "wish Main.tcl"
+- start the application with the terminal command 'wish Main.tcl'
 
 - open preferences (cmd-,) and set the right pathes
 
