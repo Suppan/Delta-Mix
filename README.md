@@ -13,7 +13,7 @@ Output:
 
 Possible Treatments:
 
-- change all time-distances by key-command ('cmd-opt-R') or the 'set rnd dx' button 
+- change all time-distances by key-command ('cmd-opt-R') or button ('set rnd dx') 
 - change/edit time-distances manually
 - change/edit volume manually
 - change/edit transposition manually
