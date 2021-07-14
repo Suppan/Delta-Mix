@@ -8,12 +8,12 @@ Input:
 
 Output:
 
-- Csound score ('temp_csound.csd')
+- Csound score ('out.csd')
 - Wav or Aiff soundfile (stereo)
 
 Possible Treatments:
 
-- change all time-distances with random seed (button: 'set rnd dx')
+- change all time-distances by key-command ('cmd-opt-R') or the 'set rnd dx' button 
 - change/edit time-distances manually
 - change/edit volume manually
 - change/edit transposition manually
@@ -29,7 +29,7 @@ Possible Treatments:
 
 ## How to use
 
-- start the Tcl-Tk Application with the terminal command "wish Main.tcl"
+- start the application with the terminal command "wish Main.tcl"
 
 - open preferences (cmd-,) and set the right pathes
 
