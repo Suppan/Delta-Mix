@@ -938,7 +938,7 @@ bind . <Command-KeyPress-3> {
 # menu4 Window
 
 menu .mbar.window
-.mbar.window add command -label "Open DeltaMix Help"  -accelerator h -command { mk_Help_Win }
+.mbar.window add command -label "Open Delta-Mix Help"  -accelerator h -command { mk_Help_Win }
 
 bind . <KeyPress-h> { mk_Help_Win }
 
@@ -952,8 +952,8 @@ bind . <KeyPress-h> { mk_Help_Win }
 #
 #========================================================================================================
 
-ttk::label .lb_appname -text "DeltaMix v0.22"  -font "menlo 24" 
-place .lb_appname -x 550 -y 5
+ttk::label .lb_appname -text "Delta-Mix v0.22"  -font "menlo 24" 
+place .lb_appname -x 540 -y 5
 
 ttk::label .lb_info_txt_dur -text "sum dx = entire dur - dur of last soundfile"  -font "menlo 11" -foreground gray
 ttk::label .lb_info_key -text "press h -> opens help window"  -font "menlo 11" -foreground gray
@@ -1681,7 +1681,7 @@ bind . <Configure> {
     place .enText_outpath -x 100 -y [expr 668 +  %h - 720];#668 
     place .lb__outpath -x 20 -y [expr 670 +  %h - 720];#670
     place .mb_format -x 260 -y [expr 669 +  %h - 720];#669   
-    place .lb_appname -x [expr 580 +  %w - 800] -y 5
+    place .lb_appname -x [expr 565 +  %w - 800] -y 5
     place .lb_info_key  -x 24 -y [expr 590 +  %h - 720]
     }
 }
