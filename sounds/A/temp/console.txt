@@ -68,5 +68,5 @@ inactive allocs returned to freespace
 end of score.		   overall amps:  1.01272  1.00516
 	   overall samples out of range:        7        2
 0 errors in performance
-Elapsed time at end of performance: real: 0.202s, CPU: 0.199s
+Elapsed time at end of performance: real: 0.253s, CPU: 0.208s
 2048 4096 sample blks of shorts written to /Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/out/mix_out.wav (AIFF)
