@@ -1,10 +1,10 @@
 0dBFS level = 32768.0
---Csound version 6.15 (double samples) Aug 10 2020
-[commit: 8b4fd4f626b145721a9f20793a05ebcd227b3fd4]
+--Csound version 6.15 (double samples) Nov 20 2020
+[commit: 18c2c7897425f462b9a7743cee157cb410c88198]
 libsndfile-1.0.28
 WARNING: could not open library '/Library/Frameworks/CsoundLib64.framework/Versions/6.0/Resources/Opcodes64/libfluidOpcodes.dylib' (-1)
 WARNING: could not open library '/Library/Frameworks/CsoundLib64.framework/Versions/6.0/Resources/Opcodes64/librtjack.dylib' (-1)
-UnifiedCSD:  /Users/wsuppan/Dropbox/2021/Apps/DeltaMix-0.22/sounds/A/temp/3-machine-noise2_speed=1.0_gain0.csd
+UnifiedCSD:  /Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/out/mix_out.csd
 STARTING FILE
 Creating options
 Creating orchestra
@@ -21,17 +21,52 @@ graphics suppressed, ascii substituted
 0dBFS level = 1.0
 orch now loaded
 audio buffered in 1024 sample-frame blocks
-writing 4096-byte blks of shorts to /Users/wsuppan/Dropbox/2021/Apps/DeltaMix-0.22/sounds/A/temp/3-machine-noise2_speed=1.0_gain0.wav (AIFF)
+writing 4096-byte blks of shorts to /Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/out/mix_out.wav (AIFF)
 SECTION 1:
 new alloc for instr 1:
-diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/DeltaMix-0.22/sounds/A/3-machine-noise2.wav':
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/4-ugly-horn.wav':
+         44100 Hz, 2 channel(s), 88665 sample frames
+
+B  0.000 .. 10.000 T 10.000 TT 10.000 M:  0.95480  0.99884
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/1-water-splash.wav':
+         44100 Hz, 2 channel(s), 164070 sample frames
+
+B 10.000 .. 13.333 T 13.333 TT 13.333 M:  0.99884  0.95984
+new alloc for instr 1:
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/2-machine-noise1.wav':
+         44100 Hz, 2 channel(s), 162024 sample frames
+
+B 13.333 .. 20.000 T 20.000 TT 20.000 M:  0.99884  0.71707
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/0-sticks.wav':
+         44100 Hz, 2 channel(s), 416892 sample frames
+
+B 20.000 .. 36.667 T 36.667 TT 36.667 M:  0.56904  0.56908
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/5-crowd.wav':
+         44100 Hz, 2 channel(s), 196098 sample frames
+
+B 36.667 .. 43.333 T 43.333 TT 43.333 M:  1.01272  1.00516
+	 number of samples out of range:        7        2
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/3-machine-noise2.wav':
          44100 Hz, 2 channel(s), 111335 sample frames
 
-B  0.000 ..  2.525 T  2.524 TT  2.524 M:  0.73782  0.99887
+B 43.333 .. 53.333 T 53.333 TT 53.333 M:  0.74798  0.99883
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/6-kung-fu.wav':
+         44100 Hz, 2 channel(s), 164100 sample frames
+
+B 53.333 .. 56.667 T 56.667 TT 56.667 M:  0.99698  0.99884
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/7-car-stop.wav':
+         44100 Hz, 2 channel(s), 307426 sample frames
+
+B 56.667 .. 60.000 T 60.000 TT 60.000 M:  0.81100  0.99881
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/8-children.wav':
+         44100 Hz, 2 channel(s), 341120 sample frames
+
+B 60.000 .. 63.638 T 63.638 TT 63.638 M:  0.88596  0.97754
+B 63.638 .. 67.735 T 67.735 TT 67.735 M:  0.00098  0.00079
 Score finished in csoundPerform().
 inactive allocs returned to freespace
-end of score.		   overall amps:  0.73782  0.99887
-	   overall samples out of range:        0        0
+end of score.		   overall amps:  1.01272  1.00516
+	   overall samples out of range:        7        2
 0 errors in performance
-Elapsed time at end of performance: real: 0.012s, CPU: 0.011s
-2048 4096 sample blks of shorts written to /Users/wsuppan/Dropbox/2021/Apps/DeltaMix-0.22/sounds/A/temp/3-machine-noise2_speed=1.0_gain0.wav (AIFF)
+Elapsed time at end of performance: real: 0.202s, CPU: 0.199s
+2048 4096 sample blks of shorts written to /Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/out/mix_out.wav (AIFF)
