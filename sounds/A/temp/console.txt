@@ -1,10 +1,10 @@
 0dBFS level = 32768.0
---Csound version 6.15 (double samples) Nov 20 2020
-[commit: 18c2c7897425f462b9a7743cee157cb410c88198]
+--Csound version 6.15 (double samples) Aug 10 2020
+[commit: 8b4fd4f626b145721a9f20793a05ebcd227b3fd4]
 libsndfile-1.0.28
 WARNING: could not open library '/Library/Frameworks/CsoundLib64.framework/Versions/6.0/Resources/Opcodes64/libfluidOpcodes.dylib' (-1)
 WARNING: could not open library '/Library/Frameworks/CsoundLib64.framework/Versions/6.0/Resources/Opcodes64/librtjack.dylib' (-1)
-UnifiedCSD:  /Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/temp/1-water-splash_speed=1.0_gain0.csd
+UnifiedCSD:  /Users/wsuppan/Dropbox/2021/Apps/DeltaMix-0.22/sounds/A/temp/3-machine-noise2_speed=1.0_gain0.csd
 STARTING FILE
 Creating options
 Creating orchestra
@@ -21,17 +21,17 @@ graphics suppressed, ascii substituted
 0dBFS level = 1.0
 orch now loaded
 audio buffered in 1024 sample-frame blocks
-writing 4096-byte blks of shorts to /Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/temp/1-water-splash_speed=1.0_gain0.wav (AIFF)
+writing 4096-byte blks of shorts to /Users/wsuppan/Dropbox/2021/Apps/DeltaMix-0.22/sounds/A/temp/3-machine-noise2_speed=1.0_gain0.wav (AIFF)
 SECTION 1:
 new alloc for instr 1:
-diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/1-water-splash.wav':
-         44100 Hz, 2 channel(s), 164070 sample frames
+diskin2: opened '/Users/wsuppan/Dropbox/2021/Apps/DeltaMix-0.22/sounds/A/3-machine-noise2.wav':
+         44100 Hz, 2 channel(s), 111335 sample frames
 
-B  0.000 ..  3.720 T  3.720 TT  3.720 M:  0.99884  0.95984
+B  0.000 ..  2.525 T  2.524 TT  2.524 M:  0.73782  0.99887
 Score finished in csoundPerform().
 inactive allocs returned to freespace
-end of score.		   overall amps:  0.99884  0.95984
+end of score.		   overall amps:  0.73782  0.99887
 	   overall samples out of range:        0        0
 0 errors in performance
-Elapsed time at end of performance: real: 0.046s, CPU: 0.011s
-2048 4096 sample blks of shorts written to /Users/wsuppan/Dropbox/2021/Apps/Delta-Mix-0.22/sounds/A/temp/1-water-splash_speed=1.0_gain0.wav (AIFF)
+Elapsed time at end of performance: real: 0.012s, CPU: 0.011s
+2048 4096 sample blks of shorts written to /Users/wsuppan/Dropbox/2021/Apps/DeltaMix-0.22/sounds/A/temp/3-machine-noise2_speed=1.0_gain0.wav (AIFF)

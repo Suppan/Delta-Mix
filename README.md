@@ -1,4 +1,4 @@
-# **DeltaMix**
+# **Delta-Mix**
 
 Application for basic mixing of sound samples with algorithmic based time-intervals written in tcl-tk
 
