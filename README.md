@@ -19,7 +19,7 @@ Possible Treatments:
 - change/edit transposition manually
 
 ## Download
-[DeltaMix](https://github.com/Suppan/DeltaMix/releases/)
+[Delta-Mix](https://github.com/Suppan/DeltaMix/releases/)
 
 ## Additional Software  
 
