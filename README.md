@@ -1,6 +1,6 @@
 # **Delta-Mix**
 
-Application for basic mixing of sound samples with algorithmic based time-intervals written in tcl-tk
+Application for basic mixing and edit of sound samples via Csound
 
 Input:
 
