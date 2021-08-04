@@ -35,6 +35,11 @@ Possible Treatments:
 
 <div align="center"><img src="/resources/icons/app.png" width="800px"</img></div>  
 
+
+- Error fix1: delete '.m_data' file in the sound directory
+
+- Error fix2: change the path to the sound directory in the file '.temp_dir' inside the application folder
+
 *************
 This program is free software. It is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY, without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
 *************
